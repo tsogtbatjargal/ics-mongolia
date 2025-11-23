@@ -4,13 +4,13 @@ const navToggle = document.querySelector('.nav-toggle');
 const navList = document.querySelector('.nav-links');
 const stepDescriptions = {
   Discover:
-    'We begin with complimentary assessments that pinpoint automation and control opportunities with the greatest value.',
+    'Free assessments covering alarm floods, loop health, instrument reliability, and HMI usability to target quick wins.',
   Define:
-    'Together we specify the technical scope, design documentation, and business justification needed for stakeholder alignment.',
+    'Scope, P&IDs, risk controls, and phased plans that balance production windows with business-backed outcomes.',
   Deliver:
-    'Our engineers co-develop, test, and implement optimized control logic, instrumentation upgrades, and operator enablement.',
+    'Co-develop, test, and commission upgrades with operators involved—no surprises for control room or field teams.',
   Review:
-    'We compare before/after performance, document lessons learned, and provide knowledge transfer for confident ownership.'
+    'Compare before/after KPIs, lock in procedures, and transfer knowledge so crews own the improvement.'
 };
 
 navToggle.addEventListener('click', () => {
