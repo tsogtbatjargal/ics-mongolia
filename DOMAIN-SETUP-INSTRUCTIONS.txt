@@ -1,0 +1,72 @@
+HOW TO CONNECT icsmongolia.com TO CLOUDFLARE
+=============================================
+
+These steps tell Squarespace to hand over control of your domain's internet
+traffic to Cloudflare. It should take about 10 minutes to do, then up to
+2 hours for the change to take effect worldwide.
+
+You will not lose your domain — it stays registered in Squarespace. You are
+only changing where the traffic gets directed.
+
+---
+
+STEP 1 — LOG INTO SQUARESPACE
+------------------------------
+1. Go to squarespace.com and sign in to your account.
+2. In the left menu, click "Settings".
+3. Click "Domains".
+4. Click on "icsmongolia.com" to open its settings.
+
+
+STEP 2 — FIND THE NAMESERVERS SECTION
+--------------------------------------
+1. Scroll down until you see a section called "Nameservers" or a button
+   that says "Use Custom Nameservers". Click it.
+2. You will see a list of nameservers that look like addresses ending in
+   ".googledomains.com". These are the old ones you need to remove.
+
+
+STEP 3 — REMOVE THE OLD NAMESERVERS
+-------------------------------------
+Delete all four of these (they may not all be shown, just remove what is there):
+
+   ns-cloud-e1.googledomains.com
+   ns-cloud-e2.googledomains.com
+   ns-cloud-e3.googledomains.com
+   ns-cloud-e4.googledomains.com
+
+
+STEP 4 — ADD THE NEW CLOUDFLARE NAMESERVERS
+--------------------------------------------
+Type in these two new addresses exactly as shown below, one per field:
+
+   randall.ns.cloudflare.com
+   zara.ns.cloudflare.com
+
+
+STEP 5 — SAVE
+--------------
+Click Save (or Confirm, or Update — the button label may vary).
+Squarespace may show a warning that your site could be affected. That is
+normal. Click through to confirm.
+
+
+STEP 6 — TURN OFF DNSSEC (if you see it)
+------------------------------------------
+While you are in the domain settings, look for a setting called "DNSSEC".
+If it is turned ON, please turn it OFF and save. This prevents a conflict
+with Cloudflare. (If you do not see this setting, you can skip this step.)
+
+
+STEP 7 — WAIT
+--------------
+The change can take anywhere from a few minutes to 2 hours to take effect.
+You do not need to do anything else during this time.
+
+Once Cloudflare confirms the domain is active, the website will be live at
+https://icsmongolia.com
+
+
+---
+If you have any trouble or are unsure about any step, please reach out before
+making changes. It is always safe to stop and ask.
