@@ -1,0 +1,498 @@
+media:
+  - name: images
+    label: Images
+    input: images
+    output: /images
+    categories: [image]
+    extensions: [jpg, jpeg, png, webp, gif, svg]
+    rename: safe
+
+components:
+  link:
+    type: object
+    fields:
+      - name: label
+        label: Label
+        type: string
+        required: true
+      - name: url
+        label: URL
+        type: string
+        required: true
+
+  cta:
+    type: object
+    fields:
+      - name: label
+        label: Label
+        type: string
+        required: true
+      - name: url
+        label: URL
+        type: string
+        required: true
+
+  hero_stat:
+    type: object
+    fields:
+      - name: value
+        label: Value
+        type: string
+        required: true
+      - name: text
+        label: Text
+        type: text
+        required: true
+
+  feature:
+    type: object
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: text
+        label: Text
+        type: text
+        required: true
+      - name: tag
+        label: Tag
+        type: string
+      - name: image
+        label: Image
+        type: image
+        options:
+          media: images
+      - name: image_alt
+        label: Image alt text
+        type: string
+
+  service:
+    type: object
+    fields:
+      - name: icon
+        label: Icon letters
+        type: string
+        required: true
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: text
+        label: Text
+        type: text
+        required: true
+      - name: tags
+        label: Tags
+        type: string
+        list: true
+
+  snapshot:
+    type: object
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: text
+        label: Text
+        type: text
+        required: true
+      - name: image
+        label: Image
+        type: image
+        options:
+          media: images
+      - name: image_alt
+        label: Image alt text
+        type: string
+
+  approach_step:
+    type: object
+    fields:
+      - name: number
+        label: Number
+        type: string
+        required: true
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: summary
+        label: Summary
+        type: text
+        required: true
+      - name: description
+        label: Detail description
+        type: text
+        required: true
+
+  team_member:
+    type: object
+    fields:
+      - name: initials
+        label: Initials
+        type: string
+        required: true
+      - name: name
+        label: Name
+        type: string
+        required: true
+      - name: role
+        label: Role
+        type: string
+        required: true
+      - name: bio
+        label: Bio
+        type: text
+        required: true
+      - name: details
+        label: Details
+        type: text
+
+  contact_person:
+    type: object
+    fields:
+      - name: name
+        label: Name
+        type: string
+        required: true
+      - name: email
+        label: Email
+        type: string
+        required: true
+      - name: phone
+        label: Phone
+        type: string
+
+  language:
+    type: object
+    fields:
+      - name: code
+        label: Code
+        type: string
+        required: true
+      - name: label
+        label: Label
+        type: string
+        required: true
+      - name: alternate_label
+        label: Alternate language label
+        type: string
+      - name: alternate_url
+        label: Alternate language URL
+        type: string
+
+  company:
+    type: object
+    fields:
+      - name: name
+        label: Legal name
+        type: string
+        required: true
+      - name: short_name
+        label: Short name
+        type: string
+        required: true
+      - name: tagline
+        label: Tagline
+        type: string
+
+  hero:
+    type: object
+    fields:
+      - name: eyebrow
+        label: Eyebrow
+        type: string
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: lede
+        label: Lead text
+        type: text
+      - name: primary_cta
+        label: Primary CTA
+        component: cta
+      - name: secondary_cta
+        label: Secondary CTA
+        component: cta
+      - name: pills
+        label: Pills
+        type: string
+        list: true
+      - name: image
+        label: Image
+        type: image
+        options:
+          media: images
+      - name: image_alt
+        label: Image alt text
+        type: string
+      - name: photo_label
+        label: Photo label
+        type: string
+      - name: photo_meta
+        label: Photo meta
+        type: string
+      - name: note
+        label: Note
+        type: text
+      - name: stats
+        label: Stats
+        component: hero_stat
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{value}"
+
+  overview:
+    type: object
+    fields:
+      - name: eyebrow
+        label: Eyebrow
+        type: string
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: text
+        label: Text
+        type: text
+      - name: features
+        label: Features
+        component: feature
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+
+  services_section:
+    type: object
+    fields:
+      - name: eyebrow
+        label: Eyebrow
+        type: string
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: text
+        label: Text
+        type: text
+      - name: items
+        label: Service items
+        component: service
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+
+  snapshots_section:
+    type: object
+    fields:
+      - name: eyebrow
+        label: Eyebrow
+        type: string
+      - name: title
+        label: Title
+        type: string
+      - name: items
+        label: Snapshots
+        component: snapshot
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+
+  approach:
+    type: object
+    fields:
+      - name: eyebrow
+        label: Eyebrow
+        type: string
+      - name: title
+        label: Title
+        type: string
+      - name: detail_title
+        label: Detail title
+        type: string
+      - name: highlight
+        label: Highlight
+        type: text
+      - name: steps
+        label: Steps
+        component: approach_step
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{number} {title}"
+
+  team:
+    type: object
+    fields:
+      - name: eyebrow
+        label: Eyebrow
+        type: string
+      - name: title
+        label: Title
+        type: string
+      - name: text
+        label: Text
+        type: text
+      - name: members
+        label: Team members
+        component: team_member
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{name}"
+
+  contact:
+    type: object
+    fields:
+      - name: eyebrow
+        label: Eyebrow
+        type: string
+      - name: title
+        label: Title
+        type: string
+      - name: text
+        label: Text
+        type: text
+      - name: direct_title
+        label: Direct contacts title
+        type: string
+      - name: note
+        label: Contact note
+        type: text
+      - name: mail_card
+        label: Mail card
+        type: object
+        fields:
+          - name: eyebrow
+            label: Eyebrow
+            type: string
+          - name: title
+            label: Title
+            type: string
+          - name: text
+            label: Text
+            type: text
+          - name: button_label
+            label: Button label
+            type: string
+          - name: email
+            label: Email
+            type: string
+            required: true
+      - name: people
+        label: Contact people
+        component: contact_person
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{name}"
+
+  footer:
+    type: object
+    fields:
+      - name: copyright
+        label: Copyright
+        type: string
+      - name: back_to_top
+        label: Back to top label
+        type: string
+
+content:
+  - name: website_content
+    label: Website Content
+    type: group
+    items:
+      - name: english_content
+        label: English Content
+        type: file
+        path: content/en.yml
+        format: yaml
+        fields:
+          - name: language
+            label: Language
+            component: language
+          - name: company
+            label: Company
+            component: company
+          - name: navigation
+            label: Navigation
+            component: link
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{label}"
+          - name: hero
+            label: Hero
+            component: hero
+          - name: overview
+            label: Overview
+            component: overview
+          - name: services
+            label: Services
+            component: services_section
+          - name: snapshots
+            label: Delivery snapshots
+            component: snapshots_section
+          - name: approach
+            label: Approach
+            component: approach
+          - name: team
+            label: Team
+            component: team
+          - name: contact
+            label: Contact
+            component: contact
+          - name: footer
+            label: Footer
+            component: footer
+
+      - name: mongolian_content
+        label: Mongolian Content
+        type: file
+        path: content/mn.yml
+        format: yaml
+        fields:
+          - name: language
+            label: Language
+            component: language
+          - name: company
+            label: Company
+            component: company
+          - name: navigation
+            label: Navigation
+            component: link
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{label}"
+          - name: hero
+            label: Hero
+            component: hero
+          - name: overview
+            label: Overview
+            component: overview
+          - name: services
+            label: Services
+            component: services_section
+          - name: snapshots
+            label: Delivery snapshots
+            component: snapshots_section
+          - name: approach
+            label: Approach
+            component: approach
+          - name: team
+            label: Team
+            component: team
+          - name: contact
+            label: Contact
+            component: contact
+          - name: footer
+            label: Footer
+            component: footer

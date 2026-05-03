@@ -1,0 +1,188 @@
+language:
+  code: en
+  label: English
+  alternate_label: Монгол
+  alternate_url: /mn/
+company:
+  name: Industrial Control Solutions LLC
+  short_name: ICS Mongolia
+  tagline: Industrial automation for Mongolia
+navigation:
+  - label: Overview
+    url: "#overview"
+  - label: Solutions
+    url: "#services"
+  - label: Approach
+    url: "#approach"
+  - label: Team
+    url: "#team"
+  - label: Contact
+    url: "#contact"
+hero:
+  eyebrow: Industrial automation for Mongolia
+  title: Automation built to keep remote mining operations moving
+  lede: We modernize control rooms, stabilize process units, and give crews a clear, data-backed view of every critical asset-from DeltaV to PLCs to dashboards.
+  primary_cta:
+    label: Start a project
+    url: "#contact"
+  secondary_cta:
+    label: View solutions
+    url: "#services"
+  pills:
+    - DeltaV | PLC
+    - Process tuning
+    - "Alarm & HMI"
+    - "Data & dashboards"
+  image: /images/remote-mining-support-247.webp
+  image_alt: Haul truck fleet under evening light
+  photo_label: Remote mine support
+  photo_meta: 24/7 critical assets
+  note: 90-day uplift plans with measurable KPIs for throughput, downtime, and alarms.
+  stats:
+    - value: 16+ years
+      text: "Mining & industrial automation experience"
+    - value: DeltaV + PLC
+      text: Control room, SCADA, and instrumentation expertise
+    - value: "On-site & remote"
+      text: Rapid response engineers with global standards
+overview:
+  eyebrow: What we deliver
+  title: Automation that keeps your operation safe, stable, and profitable
+  text: Industrial Control Solutions LLC brings mine-proven control room thinking, robust instrumentation practices, and digital visibility so crews can push throughput without trading away safety.
+  features:
+    - title: Control room clarity
+      text: Modern HMI, alarm rationalization, and incident-proof procedures aligned to ISA standards.
+      tag: Operators first
+      image: /images/control-room-clarity.jpg
+      image_alt: Control room dashboards
+    - title: Throughput tuning
+      text: Stabilize mills, crushers, and thickener circuits with robust loops and advanced controls.
+      tag: Less variability
+      image: /images/ore-conveyor-system.jpg
+      image_alt: Ore conveyor system
+    - title: Instrumentation resilience
+      text: Selection, calibration, and lifecycle support that stand up to dust, vibration, and winter cold.
+      tag: Built for site
+      image: /images/instrumentation-resilience.jpg
+      image_alt: Instrumentation checks in harsh mining conditions
+services:
+  eyebrow: Solutions
+  title: Hands-on services built for production environments
+  text: From fast assessments to full modernization programs, we execute alongside your crews to land measurable improvements.
+  items:
+    - icon: CS
+      title: Control system assessments
+      text: Independent reviews of DeltaV, PLC, and SCADA with a fast list of fixes that protect production.
+      tags:
+        - Reliability
+        - Safety
+    - icon: OR
+      title: Optimization roadmaps
+      text: "Control narratives, P&ID updates, and phased CAPEX/OPEX recommendations backed by business cases."
+      tags:
+        - ROI-first
+        - Prioritized
+    - icon: AC
+      title: Advanced control development
+      text: PID tuning, APC, and interlocks that stabilize circuits, cut downtime, and reduce manual intervention.
+      tags:
+        - APC
+        - Loop tuning
+    - icon: AH
+      title: "Alarm & HMI modernization"
+      text: ISA-18.2 alarm strategies, role-based HMI, and incident-proof operating procedures.
+      tags:
+        - ISA-18.2
+        - Operators
+    - icon: IL
+      title: Instrumentation lifecycle
+      text: Selection, calibration, and condition monitoring to keep critical sensors within design limits.
+      tags:
+        - Calibration
+        - Field-ready
+    - icon: DP
+      title: Digital performance dashboards
+      text: Data pipelines and KPI dashboards that give supervisors and leadership the same source of truth.
+      tags:
+        - OT + IT
+        - Visibility
+snapshots:
+  eyebrow: Recent delivery snapshots
+  title: Focused work that reduces risk and improves flow
+  items:
+    - title: Concentrator alarm clean-up
+      text: Reduced standing alarms by 63% and improved operator response time in three weeks.
+      image: /images/concentrator-alarm-clean-up.webp
+      image_alt: Processing plant at night
+    - title: Crusher loop stabilization
+      text: Retuned critical loops and added APC to smooth feed variability and increase throughput.
+      image: /images/crusher-loop-stabilization.jpg
+      image_alt: Control room screens
+    - title: Instrumentation reliability pack
+      text: Lifecycle plan for critical pressure and flow instruments in extreme temperature swings.
+      image: /images/instrumentation-reliability-pack.jpg
+      image_alt: Haul truck maintenance bay
+approach:
+  eyebrow: Delivery method
+  title: Practical steps that slot into your operation
+  detail_title: How it works
+  highlight: On-site, remote, or hybrid delivery with clear milestones, risk controls, and production-ready testing.
+  steps:
+    - number: "01"
+      title: Discover
+      summary: Complimentary assessments reveal automation opportunities.
+      description: Free assessments covering alarm floods, loop health, instrument reliability, and HMI usability to target quick wins.
+    - number: "02"
+      title: Define scope
+      summary: We specify, design, and document a business-backed solution.
+      description: "Scope, P&IDs, risk controls, and phased plans that balance production windows with business-backed outcomes."
+    - number: "03"
+      title: "Plan & deliver"
+      summary: Co-develop, test, and implement optimized control strategies.
+      description: Co-develop, test, and commission upgrades with operators involved-no surprises for control room or field teams.
+    - number: "04"
+      title: "Review & finalize"
+      summary: Compare performance, document outcomes, and transfer knowledge.
+      description: Compare before/after KPIs, lock in procedures, and transfer knowledge so crews own the improvement.
+team:
+  eyebrow: Our team
+  title: Engineers who have been in your control room
+  text: Automation, electrical, and data specialists with wins in complex mining environments.
+  members:
+    - initials: BL
+      name: Badraa Lkhagvaa
+      role: Co-founder - Automation Engineer
+      bio: 15+ years leading industrial and mining automation, specializing in DeltaV DCS, process control, and continuous improvement.
+      details: Optimization at Oyu Tolgoi (Mongolia) and Kennecott Utah Copper (USA). Degree in Automation of Technological Processes and Production from Ural State Mining University.
+    - initials: IG
+      name: Ider Gerelsuren
+      role: "Co-founder - Electrical & Automation Engineer"
+      bio: 8+ years across industrial automation, maintenance, and asset management with deep PLC, instrumentation, and DeltaV expertise.
+      details: Focused on MV/LV systems, safety, and operational readiness. Degree in Industrial Automation from Mongolian University of Science and Technology.
+    - initials: TB
+      name: Tsogt Batjargal
+      role: "Industrial Data & System Engineer"
+      bio: 15+ years in IT and data analytics, building reliable, integrated data systems that give teams one version of the truth.
+      details: Industrial data operations in mining companies. Degrees from NUM, Data Analytics (Toronto School of Management), and Computer Programming (Niagara College).
+contact:
+  eyebrow: Get in touch
+  title: Let us plan your next control-system upgrade
+  text: Email us directly and we will respond within one business day.
+  direct_title: Direct contacts
+  note: Local support with global best practices and remote monitoring options.
+  mail_card:
+    eyebrow: Project inquiries
+    title: Send a direct email
+    text: Share your site, system, production challenge, and preferred response time. Badraa will route the request to the right engineer.
+    button_label: Email badraa@icsmongolia.com
+    email: badraa@icsmongolia.com
+  people:
+    - name: Badraa Lkhagvaa
+      email: badraa@icsmongolia.com
+      phone: "+976 9990 8186"
+    - name: Ider Gerelsuren
+      email: ider@icsmongolia.com
+      phone: "+976 9448 0803"
+footer:
+  copyright: "© 2025 Industrial Control Solutions LLC. All rights reserved."
+  back_to_top: Back to top

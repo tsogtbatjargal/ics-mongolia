@@ -82,6 +82,7 @@ p {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text);
+  text-decoration: none;
 }
 
 .nav-links {
@@ -108,6 +109,26 @@ p {
   transform: translateY(-1px);
 }
 
+.language-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.2rem;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.language-switch a {
+  padding: 0.25rem 0.55rem;
+  font-size: 0.85rem;
+}
+
+.language-switch a.active-lang {
+  color: var(--text);
+  background: rgba(255, 122, 26, 0.2);
+}
+
 .nav-toggle {
   display: none;
   flex-direction: column;
@@ -132,6 +153,41 @@ p {
   gap: 2rem;
   margin-top: 3rem;
   align-items: center;
+}
+
+.language-page {
+  min-height: 100vh;
+}
+
+.language-hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.language-shell {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  margin: auto;
+  padding: clamp(5rem, 12vw, 9rem) 0;
+  text-align: center;
+}
+
+.language-shell h1 {
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  line-height: 1.05;
+  margin: 0 0 1rem;
+}
+
+.language-shell .lede {
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.language-shell .hero-cta {
+  justify-content: center;
+  margin-top: 2rem;
 }
 
 .hero-copy h1 {
@@ -587,6 +643,18 @@ main {
   gap: 1rem;
 }
 
+.mail-card {
+  justify-content: center;
+}
+
+.mail-card h3 {
+  margin: 0;
+}
+
+.mail-card .btn {
+  align-self: flex-start;
+}
+
 label {
   color: var(--text);
   font-weight: 600;
@@ -616,12 +684,6 @@ textarea {
   gap: 0.65rem;
   margin-top: 1rem;
   color: var(--muted);
-}
-
-.form-status {
-  min-height: 1.5rem;
-  color: var(--primary-strong);
-  font-weight: 600;
 }
 
 .footer {
@@ -665,5 +727,16 @@ textarea {
 
   .hero-shell {
     margin-top: 2.25rem;
+  }
+
+  .language-root-links {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    background: transparent;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
   }
 }
