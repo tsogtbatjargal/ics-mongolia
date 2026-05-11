@@ -1,5 +1,12 @@
 {
+  "scripts": {
+    "build": "node build.js"
+  },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.92.0"
+  },
+  "devDependencies": {
+    "js-yaml": "^4.1.0",
+    "jsdom": "^26.0.0"
   }
 }

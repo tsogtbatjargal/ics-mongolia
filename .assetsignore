@@ -1,0 +1,16 @@
+.git
+.github
+.wrangler
+node_modules
+*.pdf
+build.js
+package.json
+package-lock.json
+wrangler.jsonc
+.pages.yml
+.assetsignore
+.gitignore
+DOMAIN-SETUP-INSTRUCTIONS.txt
+README.md
+CLAUDE.md
+content
