@@ -6,12 +6,14 @@ language:
 company:
   name: INDUSTRIAL CONTROL SOLUTIONS LLC
   short_name: ICS Mongolia
-  tagline: INDUSTRIAL CONTROL SOLUTIONS LLC
+  tagline: Driving industrial performance through AI, automation and innovation.
 navigation:
   - label: Overview
     url: "#overview"
   - label: Solutions
     url: "#services"
+  - label: AI
+    url: "#ai-solutions"
   - label: Approach
     url: "#approach"
   - label: Team
@@ -19,7 +21,7 @@ navigation:
   - label: Contact
     url: "#contact"
 hero:
-  eyebrow: INDUSTRIAL CONTROL SOLUTIONS LLC
+  eyebrow: Industrial Control Solutions LLC
   title: Driving Industrial Performance Through AI, Automation and Innovation
   lede: Industrial Control Solutions LLC empowers mining and industrial
     organizations to unlock the full potential of their operations through
@@ -31,10 +33,8 @@ hero:
   secondary_cta:
     label: View solutions
     url: "#services"
-  pills:
-    - Data & dashboards
-  image: /images/remote-mining-support-247.webp
-  image_alt: Haul truck fleet under evening light
+  image: /images/control-room-mining-site.jpg
+  image_alt: Operators monitoring DCS screens in a mining control room
   photo_label: Remote mine support
   photo_meta: 24/7 critical assets
   stats:
@@ -44,67 +44,95 @@ hero:
       text: Control room, SCADA, and instrumentation expertise
     - value: On-site & remote
       text: Rapid response engineers with global standards
-    - value: Alarm & HMI
-      text: Alarm & HMI
-    - value: Process Tuning
-      text: Process Tuning
-    - value: Data & Dashboards
-      text: Data & Dashboards
 overview:
   eyebrow: What we deliver
-  title: Our expertise lies in addressing the unique challenges of
-    resource-limited environments — process inefficiencies, workforce
-    constraints, and overlooked improvement areas — helping clients achieve
-    measurable performance gains and cost reductions
+  title: Automation that keeps your operation safe, stable, and profitable.
+  text: We improve plant safety and productivity through automation and
+    control-system optimization, converting day-to-day operational challenges
+    into long-term, measurable performance gains.
 services:
   eyebrow: Solutions
-  title: We provide tailored automation, control, instrumentation, AI and digital
-    solutions that fit each operation’s unique environment
-  text: With over 16 years of hands-on experience in global mining and industrial
-    operations, we combine international best practices with local expertise,
-    ensuring rapid response, long-term support, and tangible results for our
-    clients across Mongolia’s industrial sector
+  title: Hands-on services built for production environments
+  text: We provide tailored automation, control, instrumentation, AI and digital
+    solutions that fit each operation's unique environment. With 16+ years of
+    hands-on experience in global mining and industrial operations, we combine
+    international best practices with local expertise — delivering rapid
+    response, long-term support, and tangible results across Mongolia's
+    industrial sector.
   items:
     - icon: CS
       title: Control system optimization
-      text: Control system assessments
+      text: Independent reviews of DeltaV, PLC, and SCADA with a prioritized list
+        of fixes that protect production.
       tags:
         - Reliability
         - Safety
     - icon: PC
       title: Process control logic development
-      text: Optimization roadmaps
+      text: Control narratives, P&ID updates, and phased CAPEX/OPEX
+        recommendations backed by business cases.
       tags:
         - ROI-first
         - Prioritized
-    - icon: PID
-      title: PID controller optimization and process stabilization improvement
-      text: PID tuning, APC, and interlocks that stabilize circuits, cut downtime, and
-        reduce manual intervention.
+    - icon: AC
+      title: PID controller optimization & process stabilization
+      text: PID tuning, APC, and interlocks that stabilize circuits, cut
+        downtime, and reduce manual intervention.
       tags:
         - APC
         - Loop tuning
     - icon: AH
       title: Alarm & HMI modernization
-      text: ISA-18.2 alarm strategies, role-based HMI, and incident-proof operating
-        procedures.
+      text: ISA-18.2 alarm strategies, role-based HMI, and incident-proof
+        operating procedures.
       tags:
         - ISA-18.2
         - Operators
     - icon: IL
       title: Instrumentation lifecycle
-      text: Selection, calibration, and condition monitoring to keep critical sensors
-        within design limits.
+      text: Selection, calibration, and condition monitoring to keep critical
+        sensors within design limits.
       tags:
         - Calibration
         - Field-ready
     - icon: DP
       title: Digital performance dashboards
-      text: Data pipelines and KPI dashboards that give supervisors and leadership the
-        same source of truth.
+      text: Data pipelines and KPI dashboards that give supervisors and
+        leadership the same source of truth.
       tags:
         - OT + IT
         - Visibility
+ai_solutions:
+  eyebrow: AI Solutions
+  title: AI-Powered Computer Vision solutions for the Mining Industry
+  intro: ICS builds custom computer vision solutions that help mining operations
+    improve safety, reduce downtime, and automate visual inspection across the
+    entire extraction process. Our models are trained on mining-specific data
+    and built to perform in harsh mining environments.
+  product:
+    name: ICS-FOD
+    tagline: Foreign Object Detection System
+    logo: /images/ics-fod-logo.png
+    logo_alt: ICS-FOD logo
+    image: /images/ics-fod-product.png
+    image_alt: ICS-FOD live foreign-object-detection user interface
+    description: The ICS-FOD is an AI system that provides continuous, real-time
+      detection of foreign objects on conveyor belts in mining and mineral
+      processing operations. By combining an AI engine, embedded computing
+      device, industrial-grade camera, and a configurable alarm and integration
+      platform, ICS-FOD identifies hazardous objects before they reach critical
+      downstream equipment — preventing costly belt damage, equipment failures,
+      and unplanned production downtime.
+    features:
+      - title: Deep Learning Vision
+        text: Detects ferrous & non-ferrous tramp metal and oversized objects —
+          classes missed by conventional metal detectors.
+      - title: < 1s Latency
+        text: From object entering camera FOV to alarm output — instant belt stop
+          on confirmed detection.
+      - title: 24 / 7 Monitoring
+        text: No blind spots between inspections. Operates overnight and during
+          shift changes with no operator input.
 approach:
   eyebrow: Delivery method
   title: Practical steps that slot into your operation
@@ -126,7 +154,7 @@ approach:
       title: Plan & deliver
       summary: Co-develop, test, and implement optimized control strategies.
       description: Co-develop, test, and commission upgrades with operators
-        involved-no surprises for control room or field teams.
+        involved — no surprises for control room or field teams.
     - number: "04"
       title: Review & finalize
       summary: Compare performance, document outcomes, and transfer knowledge.
@@ -134,56 +162,57 @@ approach:
         knowledge so crews own the improvement.
 team:
   eyebrow: Our team
-  title: Automation, electrical, AI and data specialists with proven experience in
-    complex mining environments. Make it bold like title
-  text: Automation, electrical, and data specialists with wins in complex mining
-    environments.
+  title: Automation, electrical, AI and data specialists with 16+ years of
+    proven experience in complex mining environments.
+  text: A multidisciplinary team of automation, electrical, AI and data
+    engineers delivering results across Mongolia's industrial sector.
   members:
     - initials: BL
       name: Badraa Lkhagvaa
-      role: Co-founder - Automation Engineer
-      bio: 15+ years leading industrial and mining automation, specializing in DeltaV
-        DCS, process control, and continuous improvement.
-      details: Optimization at Oyu Tolgoi (Mongolia) and Kennecott Utah Copper (USA).
-        Degree in Automation of Technological Processes and Production from Ural
-        State Mining University.
+      role: Co-founder — Automation Engineer
+      bio: 16+ years specializing in automation across mining and industrial
+        operations, with deep expertise in Emerson DeltaV DCS, Metso OCS 4-D
+        advanced process control, Aveva PI data systems, and continuous
+        improvement.
+      details: Previously led and delivered automation and optimization projects
+        at Oyu Tolgoi (Mongolia) and Kennecott Utah Copper (USA). Graduated from
+        Ural State Mining University in Automation of Technological Processes
+        and Production.
     - initials: IG
       name: Ider Gerelsuren
-      role: Co-founder - Electrical & Automation Engineer
-      bio: 8+ years across industrial automation, maintenance, and asset management
-        with deep PLC, instrumentation, and DeltaV expertise.
-      details: Focused on MV/LV systems, safety, and operational readiness. Degree in
-        Industrial Automation from Mongolian University of Science and
-        Technology.
+      role: Co-founder — Electrical & Automation Engineer
+      bio: 8+ years in concentrator-plant maintenance, reliability, and
+        automation. Expert in low/medium-voltage systems, PLC programming,
+        instrumentation, and DeltaV.
+      details: Improved equipment reliability and reduced downtime through CAPEX
+        planning, asset management, and OEM partnerships. Graduated from MUST in
+        Industrial Automation.
     - initials: TB
       name: Tsogt Batjargal
-      role: Industrial Data & System Engineer
-      bio: 15+ years in IT and data analytics, building reliable, integrated data
-        systems that give teams one version of the truth.
-      details: Industrial data operations in mining companies. Degrees from NUM, Data
-        Analytics, and Computer Programming.
+      role: Data & Software Engineer (Remote)
+      bio: Experienced in data-pipeline and ETL development and maintenance.
+        Skilled in Python, SQL and C#, with strong data modeling, analysis, and
+        visualization experience. Builds robust data integrations and
+        communicates clearly with both technical and non-technical stakeholders.
+      details: Microcontroller Programming at the National University of
+        Mongolia. Data Analytics at Toronto School of Management. Computer
+        Programming at Niagara College.
     - initials: ZT
       name: Zulkhuu Tuya
-      role: AI and Computer Vision Engineer
-      bio: AI and computer vision engineer with over a decade of experience across
-        robotics, 3D vision, sensor calibration, embedded systems, and machine
-        learning. His work spans 3D reconstruction, multi-sensor registration,
-        ROS-based robotics, localization, embedded vision optimization, image
-        and video processing. With industry experience at Sony, Kailas Robotics,
-        and startup ventures, he brings deep technical expertise in making
-        cameras see, understand, and measure the physical world.
+      role: AI & Computer Vision Engineer
+      bio: AI and computer vision engineer with over a decade of experience
+        across robotics, 3D vision, sensor calibration, embedded systems, and
+        machine learning. His work spans 3D reconstruction, multi-sensor
+        registration, ROS-based robotics, localization, embedded vision
+        optimization, and image/video processing.
+      details: Industry experience at Sony, Kailas Robotics, and startup
+        ventures — bringing deep technical expertise in making cameras see,
+        understand, and measure the physical world.
 contact:
   eyebrow: Get in touch
   title: Let us plan your next control-system upgrade
   text: We look forward to hearing from you.
   direct_title: Direct contacts
-  mail_card:
-    eyebrow: Project inquiries
-    title: Send a direct email
-    text: Share your site, system, production challenge, and preferred response
-      time. Badraa will route the request to the right engineer.
-    button_label: Email badraa@icsmongolia.com
-    email: badraa@icsmongolia.com
   people:
     - name: Badraa Lkhagvaa
       email: badraa@icsmongolia.com

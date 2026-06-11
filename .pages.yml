@@ -44,29 +44,6 @@ components:
         type: text
         required: true
 
-  feature:
-    type: object
-    fields:
-      - name: title
-        label: Title
-        type: string
-        required: true
-      - name: text
-        label: Text
-        type: text
-        required: true
-      - name: tag
-        label: Tag
-        type: string
-      - name: image
-        label: Image
-        type: image
-        options:
-          media: images
-      - name: image_alt
-        label: Image alt text
-        type: string
-
   service:
     type: object
     fields:
@@ -87,7 +64,7 @@ components:
         type: string
         list: true
 
-  snapshot:
+  ai_feature:
     type: object
     fields:
       - name: title
@@ -98,14 +75,6 @@ components:
         label: Text
         type: text
         required: true
-      - name: image
-        label: Image
-        type: image
-        options:
-          media: images
-      - name: image_alt
-        label: Image alt text
-        type: string
 
   approach_step:
     type: object
@@ -217,10 +186,6 @@ components:
       - name: secondary_cta
         label: Secondary CTA
         component: cta
-      - name: pills
-        label: Pills
-        type: string
-        list: true
       - name: image
         label: Image
         type: image
@@ -235,9 +200,6 @@ components:
       - name: photo_meta
         label: Photo meta
         type: string
-      - name: note
-        label: Note
-        type: text
       - name: stats
         label: Stats
         component: hero_stat
@@ -259,13 +221,6 @@ components:
       - name: text
         label: Text
         type: text
-      - name: features
-        label: Features
-        component: feature
-        list:
-          collapsible:
-            collapsed: true
-            summary: "{title}"
 
   services_section:
     type: object
@@ -288,7 +243,7 @@ components:
             collapsed: true
             summary: "{title}"
 
-  snapshots_section:
+  ai_solutions_section:
     type: object
     fields:
       - name: eyebrow
@@ -297,13 +252,47 @@ components:
       - name: title
         label: Title
         type: string
-      - name: items
-        label: Snapshots
-        component: snapshot
-        list:
-          collapsible:
-            collapsed: true
-            summary: "{title}"
+        required: true
+      - name: intro
+        label: Intro
+        type: text
+      - name: product
+        label: Product
+        type: object
+        fields:
+          - name: name
+            label: Product name
+            type: string
+            required: true
+          - name: tagline
+            label: Product tagline
+            type: string
+          - name: logo
+            label: Product logo
+            type: image
+            options:
+              media: images
+          - name: logo_alt
+            label: Logo alt text
+            type: string
+          - name: image
+            label: Product UI image
+            type: image
+            options:
+              media: images
+          - name: image_alt
+            label: Image alt text
+            type: string
+          - name: description
+            label: Description
+            type: text
+          - name: features
+            label: Features
+            component: ai_feature
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{title}"
 
   approach:
     type: object
@@ -363,29 +352,6 @@ components:
       - name: direct_title
         label: Direct contacts title
         type: string
-      - name: note
-        label: Contact note
-        type: text
-      - name: mail_card
-        label: Mail card
-        type: object
-        fields:
-          - name: eyebrow
-            label: Eyebrow
-            type: string
-          - name: title
-            label: Title
-            type: string
-          - name: text
-            label: Text
-            type: text
-          - name: button_label
-            label: Button label
-            type: string
-          - name: email
-            label: Email
-            type: string
-            required: true
       - name: people
         label: Contact people
         component: contact_person
@@ -437,9 +403,9 @@ content:
           - name: services
             label: Services
             component: services_section
-          - name: snapshots
-            label: Delivery snapshots
-            component: snapshots_section
+          - name: ai_solutions
+            label: AI Solutions
+            component: ai_solutions_section
           - name: approach
             label: Approach
             component: approach
@@ -481,9 +447,9 @@ content:
           - name: services
             label: Services
             component: services_section
-          - name: snapshots
-            label: Delivery snapshots
-            component: snapshots_section
+          - name: ai_solutions
+            label: AI Solutions
+            component: ai_solutions_section
           - name: approach
             label: Approach
             component: approach

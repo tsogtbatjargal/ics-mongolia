@@ -10,7 +10,6 @@ function imgSrc(p) {
   return String(p).startsWith('/') ? '..' + p : p;
 }
 
-// Escape for use in innerHTML-built strings
 function esc(str) {
   return String(str)
     .replace(/&/g, '&amp;')
@@ -20,7 +19,7 @@ function esc(str) {
 }
 
 function setText(el, text) {
-  if (el) el.textContent = String(text);
+  if (el && text != null) el.textContent = String(text);
 }
 
 function buildPage(lang) {
@@ -33,7 +32,9 @@ function buildPage(lang) {
 
   // ── Meta ──────────────────────────────────────────────────────────────────
   doc.documentElement.lang = c.language.code;
-  setText(doc.querySelector('a.logo'), c.company.short_name);
+
+  const logoImg = doc.querySelector('a.logo img');
+  if (logoImg) logoImg.setAttribute('alt', c.company.short_name);
 
   // Navigation
   const navLinks = doc.querySelectorAll('.nav-links > li:not(.language-switch) a');
@@ -61,13 +62,6 @@ function buildPage(lang) {
     ghostBtn.setAttribute('href', h.secondary_cta.url);
   }
 
-  const pillRow = doc.querySelector('.pill-row');
-  if (pillRow) {
-    pillRow.innerHTML = h.pills
-      .map(p => `<span class="pill">${esc(p)}</span>`)
-      .join('\n            ');
-  }
-
   const heroImg = doc.querySelector('.hero-photo img');
   if (heroImg) {
     heroImg.setAttribute('src', imgSrc(h.image));
@@ -78,34 +72,20 @@ function buildPage(lang) {
   if (photoSpans[0]) photoSpans[0].textContent = h.photo_label;
   if (photoSpans[1]) photoSpans[1].textContent = h.photo_meta;
 
-  setText(doc.querySelector('.hero-chip p'), h.note);
-
-  const statItems = doc.querySelectorAll('.hero-stats li');
-  h.stats.forEach((stat, i) => {
-    if (statItems[i]) {
-      setText(statItems[i].querySelector('span'), stat.value);
-      setText(statItems[i].querySelector('p'), stat.text);
-    }
-  });
+  const statsContainer = doc.querySelector('.hero-stats');
+  if (statsContainer && Array.isArray(h.stats)) {
+    statsContainer.innerHTML = h.stats.map(stat => `
+        <li>
+          <span>${esc(stat.value)}</span>
+          <p>${esc(stat.text)}</p>
+        </li>`).join('');
+  }
 
   // ── Overview ──────────────────────────────────────────────────────────────
   const ov = c.overview;
   setText(doc.querySelector('#overview .eyebrow'), ov.eyebrow);
   setText(doc.querySelector('#overview h2'), ov.title);
   setText(doc.querySelector('#overview .section-header p:not(.eyebrow)'), ov.text);
-
-  const featureCards = doc.querySelectorAll('.feature-card');
-  ov.features.forEach((feat, i) => {
-    if (!featureCards[i]) return;
-    const img = featureCards[i].querySelector('img');
-    if (img) {
-      img.setAttribute('src', imgSrc(feat.image));
-      img.setAttribute('alt', feat.image_alt);
-    }
-    setText(featureCards[i].querySelector('h3'), feat.title);
-    setText(featureCards[i].querySelector('p'), feat.text);
-    setText(featureCards[i].querySelector('.tag'), feat.tag);
-  });
 
   // ── Services ──────────────────────────────────────────────────────────────
   const sv = c.services;
@@ -128,21 +108,37 @@ function buildPage(lang) {
           </article>`).join('');
   }
 
-  // ── Snapshots ─────────────────────────────────────────────────────────────
-  const sn = c.snapshots;
-  setText(doc.querySelector('#challenges .eyebrow'), sn.eyebrow);
-  setText(doc.querySelector('#challenges h2'), sn.title);
+  // ── AI Solutions ──────────────────────────────────────────────────────────
+  const ai = c.ai_solutions;
+  if (ai) {
+    setText(doc.querySelector('#ai-solutions .eyebrow'), ai.eyebrow);
+    setText(doc.querySelector('#ai-solutions h2'), ai.title);
+    setText(doc.querySelector('#ai-solutions .ai-intro'), ai.intro);
 
-  const snapshotGrid = doc.querySelector('.snapshot-grid');
-  if (snapshotGrid) {
-    snapshotGrid.innerHTML = sn.items.map(item => `
-          <article class="snapshot-card">
-            <img src="${esc(imgSrc(item.image))}" alt="${esc(item.image_alt)}" loading="lazy" />
-            <div class="snapshot-body">
-              <h3>${esc(item.title)}</h3>
-              <p>${esc(item.text)}</p>
-            </div>
+    const p = ai.product || {};
+    const productLogo = doc.querySelector('.ai-product-logo');
+    if (productLogo && p.logo) {
+      productLogo.setAttribute('src', imgSrc(p.logo));
+      productLogo.setAttribute('alt', p.logo_alt || p.name || '');
+    }
+    setText(doc.querySelector('.ai-product-name'), p.name);
+    setText(doc.querySelector('.ai-product-tagline'), p.tagline);
+    setText(doc.querySelector('.ai-product-description'), p.description);
+
+    const productImg = doc.querySelector('.ai-product-image');
+    if (productImg && p.image) {
+      productImg.setAttribute('src', imgSrc(p.image));
+      productImg.setAttribute('alt', p.image_alt || '');
+    }
+
+    const featGrid = doc.querySelector('.ai-features');
+    if (featGrid && Array.isArray(p.features)) {
+      featGrid.innerHTML = p.features.map(f => `
+          <article class="card ai-feature">
+            <h3>${esc(f.title)}</h3>
+            <p>${esc(f.text)}</p>
           </article>`).join('');
+    }
   }
 
   // ── Approach ──────────────────────────────────────────────────────────────
@@ -188,8 +184,8 @@ function buildPage(lang) {
                 <p>${esc(member.role)}</p>
               </div>
             </div>
-            <p>${esc(member.bio)}</p>
-            <p class="muted-text">${esc(member.details)}</p>
+            <p>${esc(member.bio)}</p>${member.details ? `
+            <p class="muted-text">${esc(member.details)}</p>` : ''}
           </article>`).join('');
   }
 
@@ -199,7 +195,6 @@ function buildPage(lang) {
   setText(doc.querySelector('#contact h2'), ct.title);
   setText(doc.querySelector('#contact .section-header p:not(.eyebrow)'), ct.text);
   setText(doc.querySelector('.contact-panel h3'), ct.direct_title);
-  setText(doc.querySelector('.contact-note p'), ct.note);
 
   const contactList = doc.querySelector('.contact-list');
   if (contactList) {
@@ -209,16 +204,6 @@ function buildPage(lang) {
                   <a href="mailto:${esc(person.email)}">${esc(person.email)}</a>
                   <span class="contact-meta">${esc(person.phone)}</span>
                 </li>`).join('');
-  }
-
-  const mc = ct.mail_card;
-  setText(doc.querySelector('.mail-card .eyebrow'), mc.eyebrow);
-  setText(doc.querySelector('.mail-card h3'), mc.title);
-  setText(doc.querySelector('.mail-card > p:not(.eyebrow)'), mc.text);
-  const mailBtn = doc.querySelector('.mail-card .btn');
-  if (mailBtn) {
-    mailBtn.textContent = mc.button_label;
-    mailBtn.setAttribute('href', `mailto:${mc.email}`);
   }
 
   // ── Footer ────────────────────────────────────────────────────────────────
