@@ -4,9 +4,9 @@ language:
   alternate_label: Монгол
   alternate_url: /mn/
 company:
-  name: Industrial Control Solutions LLC
+  name: INDUSTRIAL CONTROL SOLUTIONS LLC
   short_name: ICS Mongolia
-  tagline: Industrial automation for Mongolia
+  tagline: INDUSTRIAL CONTROL SOLUTIONS LLC
 navigation:
   - label: Overview
     url: "#overview"
@@ -19,11 +19,12 @@ navigation:
   - label: Contact
     url: "#contact"
 hero:
-  eyebrow: Industrial automation for Mongolia
-  title: Automation built to keep remote mining operations moving
-  lede: We modernize control rooms, stabilize process units, and give crews a
-    clear, data-backed view of every critical asset-from DeltaV to PLCs to
-    dashboards.
+  eyebrow: INDUSTRIAL CONTROL SOLUTIONS LLC
+  title: Driving Industrial Performance Through AI, Automation and Innovation
+  lede: Industrial Control Solutions LLC empowers mining and industrial
+    organizations to unlock the full potential of their operations through
+    world-class automation, process control, AI and digital transformation
+    solutions.
   primary_cta:
     label: Start a project
     url: "#contact"
@@ -31,16 +32,11 @@ hero:
     label: View solutions
     url: "#services"
   pills:
-    - DeltaV | PLC
-    - Process tuning
-    - Alarm & HMI
     - Data & dashboards
   image: /images/remote-mining-support-247.webp
   image_alt: Haul truck fleet under evening light
   photo_label: Remote mine support
   photo_meta: 24/7 critical assets
-  note: 90-day uplift plans with measurable KPIs for throughput, downtime, and
-    alarms.
   stats:
     - value: 16+ years
       text: Mining & industrial automation experience
@@ -48,53 +44,41 @@ hero:
       text: Control room, SCADA, and instrumentation expertise
     - value: On-site & remote
       text: Rapid response engineers with global standards
+    - value: Alarm & HMI
+      text: Alarm & HMI
+    - value: Process Tuning
+      text: Process Tuning
+    - value: Data & Dashboards
+      text: Data & Dashboards
 overview:
   eyebrow: What we deliver
-  title: Automation that keeps your operation safe, stable, and profitable
-  text: Industrial Control Solutions LLC brings mine-proven control room thinking,
-    robust instrumentation practices, and digital visibility so crews can push
-    throughput without trading away safety.
-  features:
-    - title: Control room clarity
-      text: Modern HMI, alarm rationalization, and incident-proof procedures aligned
-        to ISA standards.
-      tag: Operators first
-      image: /images/control-room-clarity.jpg
-      image_alt: Control room dashboards
-    - title: Throughput tuning
-      text: Stabilize mills, crushers, and thickener circuits with robust loops and
-        advanced controls.
-      tag: Less variability
-      image: /images/ore-conveyor-system.jpg
-      image_alt: Ore conveyor system
-    - title: Instrumentation resilience
-      text: Selection, calibration, and lifecycle support that stand up to dust,
-        vibration, and winter cold.
-      tag: Built for site
-      image: /images/instrumentation-resilience.jpg
-      image_alt: Instrumentation checks in harsh mining conditions
+  title: Our expertise lies in addressing the unique challenges of
+    resource-limited environments — process inefficiencies, workforce
+    constraints, and overlooked improvement areas — helping clients achieve
+    measurable performance gains and cost reductions
 services:
   eyebrow: Solutions
-  title: Hands-on services built for production environments
-  text: From fast assessments to full modernization programs, we execute alongside
-    your crews to land measurable improvements.
+  title: We provide tailored automation, control, instrumentation, AI and digital
+    solutions that fit each operation’s unique environment
+  text: With over 16 years of hands-on experience in global mining and industrial
+    operations, we combine international best practices with local expertise,
+    ensuring rapid response, long-term support, and tangible results for our
+    clients across Mongolia’s industrial sector
   items:
     - icon: CS
-      title: Control system assessments
-      text: Independent reviews of DeltaV, PLC, and SCADA with a fast list of fixes
-        that protect production.
+      title: Control system optimization
+      text: Control system assessments
       tags:
         - Reliability
         - Safety
-    - icon: OR
-      title: Optimization roadmaps
-      text: Control narratives, P&ID updates, and phased CAPEX/OPEX recommendations
-        backed by business cases.
+    - icon: PC
+      title: Process control logic development
+      text: Optimization roadmaps
       tags:
         - ROI-first
         - Prioritized
-    - icon: AC
-      title: Advanced control development
+    - icon: PID
+      title: PID controller optimization and process stabilization improvement
       text: PID tuning, APC, and interlocks that stabilize circuits, cut downtime, and
         reduce manual intervention.
       tags:
@@ -121,25 +105,6 @@ services:
       tags:
         - OT + IT
         - Visibility
-snapshots:
-  eyebrow: Recent delivery snapshots
-  title: Focused work that reduces risk and improves flow
-  items:
-    - title: Concentrator alarm clean-up
-      text: Reduced standing alarms by 63% and improved operator response time in
-        three weeks.
-      image: /images/concentrator-alarm-clean-up.webp
-      image_alt: Processing plant at night
-    - title: Crusher loop stabilization
-      text: Retuned critical loops and added APC to smooth feed variability and
-        increase throughput.
-      image: /images/crusher-loop-stabilization.jpg
-      image_alt: Control room screens
-    - title: Instrumentation reliability pack
-      text: Lifecycle plan for critical pressure and flow instruments in extreme
-        temperature swings.
-      image: /images/instrumentation-reliability-pack.jpg
-      image_alt: Haul truck maintenance bay
 approach:
   eyebrow: Delivery method
   title: Practical steps that slot into your operation
@@ -169,7 +134,8 @@ approach:
         knowledge so crews own the improvement.
 team:
   eyebrow: Our team
-  title: Engineers who have been in your control room
+  title: Automation, electrical, AI and data specialists with proven experience in
+    complex mining environments. Make it bold like title
   text: Automation, electrical, and data specialists with wins in complex mining
     environments.
   members:
@@ -196,12 +162,21 @@ team:
         systems that give teams one version of the truth.
       details: Industrial data operations in mining companies. Degrees from NUM, Data
         Analytics, and Computer Programming.
+    - initials: ZT
+      name: Zulkhuu Tuya
+      role: AI and Computer Vision Engineer
+      bio: AI and computer vision engineer with over a decade of experience across
+        robotics, 3D vision, sensor calibration, embedded systems, and machine
+        learning. His work spans 3D reconstruction, multi-sensor registration,
+        ROS-based robotics, localization, embedded vision optimization, image
+        and video processing. With industry experience at Sony, Kailas Robotics,
+        and startup ventures, he brings deep technical expertise in making
+        cameras see, understand, and measure the physical world.
 contact:
   eyebrow: Get in touch
   title: Let us plan your next control-system upgrade
-  text: Email us directly and we will respond within one business day.
+  text: We look forward to hearing from you.
   direct_title: Direct contacts
-  note: Local support with global best practices and remote monitoring options.
   mail_card:
     eyebrow: Project inquiries
     title: Send a direct email
@@ -217,5 +192,5 @@ contact:
       email: ider@icsmongolia.com
       phone: +976 9448 0803
 footer:
-  copyright: © 2025 Industrial Control Solutions LLC. All rights reserved.
+  copyright: © 2026 Industrial Control Solutions LLC. All rights reserved.
   back_to_top: Back to top
