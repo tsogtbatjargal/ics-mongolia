@@ -35,8 +35,8 @@ hero:
     url: "#services"
   image: /images/control-room-mining-site.jpg
   image_alt: Operators monitoring DCS screens in a mining control room
-  photo_label: Remote mine support
-  photo_meta: 24/7 critical assets
+  photo_label: Industrial Automation
+  photo_meta: Process Control
   stats:
     - value: 16+ years
       text: Mining & industrial automation experience
@@ -47,9 +47,10 @@ hero:
 overview:
   eyebrow: What we deliver
   title: Automation that keeps your operation safe, stable, and profitable.
-  text: We improve plant safety and productivity through automation and
-    control-system optimization, converting day-to-day operational challenges
-    into long-term, measurable performance gains.
+  text: Our expertise lies in addressing the unique challenges of resource-limited
+    environments — process inefficiencies, workforce constraints, and overlooked
+    improvement areas — helping clients achieve measurable performance gains and
+    cost reductions.
 services:
   eyebrow: Solutions
   title: Hands-on services built for production environments
@@ -62,43 +63,43 @@ services:
   items:
     - icon: CS
       title: Control system optimization
-      text: Independent reviews of DeltaV, PLC, and SCADA with a prioritized list
-        of fixes that protect production.
+      text: Independent reviews of DeltaV, PLC, and SCADA with a prioritized list of
+        fixes that protect production.
       tags:
         - Reliability
         - Safety
     - icon: PC
       title: Process control logic development
-      text: Control narratives, P&ID updates, and phased CAPEX/OPEX
-        recommendations backed by business cases.
+      text: Control narratives, P&ID updates, and phased CAPEX/OPEX recommendations
+        backed by business cases.
       tags:
         - ROI-first
         - Prioritized
     - icon: AC
       title: PID controller optimization & process stabilization
-      text: PID tuning, APC, and interlocks that stabilize circuits, cut
-        downtime, and reduce manual intervention.
+      text: PID tuning, APC, and interlocks that stabilize circuits, cut downtime, and
+        reduce manual intervention.
       tags:
         - APC
         - Loop tuning
     - icon: AH
       title: Alarm & HMI modernization
-      text: ISA-18.2 alarm strategies, role-based HMI, and incident-proof
-        operating procedures.
+      text: ISA-18.2 alarm strategies, role-based HMI, and incident-proof operating
+        procedures.
       tags:
         - ISA-18.2
         - Operators
     - icon: IL
       title: Instrumentation lifecycle
-      text: Selection, calibration, and condition monitoring to keep critical
-        sensors within design limits.
+      text: Selection, calibration, and condition monitoring to keep critical sensors
+        within design limits.
       tags:
         - Calibration
         - Field-ready
     - icon: DP
       title: Digital performance dashboards
-      text: Data pipelines and KPI dashboards that give supervisors and
-        leadership the same source of truth.
+      text: Data pipelines and KPI dashboards that give supervisors and leadership the
+        same source of truth.
       tags:
         - OT + IT
         - Visibility
@@ -125,14 +126,14 @@ ai_solutions:
       and unplanned production downtime.
     features:
       - title: Deep Learning Vision
-        text: Detects ferrous & non-ferrous tramp metal and oversized objects —
-          classes missed by conventional metal detectors.
+        text: Detects ferrous & non-ferrous tramp metal and oversized objects — classes
+          missed by conventional metal detectors.
       - title: < 1s Latency
-        text: From object entering camera FOV to alarm output — instant belt stop
-          on confirmed detection.
+        text: From object entering camera FOV to alarm output — instant belt stop on
+          confirmed detection.
       - title: 24 / 7 Monitoring
-        text: No blind spots between inspections. Operates overnight and during
-          shift changes with no operator input.
+        text: No blind spots between inspections. Operates overnight and during shift
+          changes with no operator input.
 approach:
   eyebrow: Delivery method
   title: Practical steps that slot into your operation
@@ -153,8 +154,8 @@ approach:
     - number: "03"
       title: Plan & deliver
       summary: Co-develop, test, and implement optimized control strategies.
-      description: Co-develop, test, and commission upgrades with operators
-        involved — no surprises for control room or field teams.
+      description: Co-develop, test, and commission upgrades with operators involved —
+        no surprises for control room or field teams.
     - number: "04"
       title: Review & finalize
       summary: Compare performance, document outcomes, and transfer knowledge.
@@ -162,10 +163,10 @@ approach:
         knowledge so crews own the improvement.
 team:
   eyebrow: Our team
-  title: Automation, electrical, AI and data specialists with 16+ years of
-    proven experience in complex mining environments.
-  text: A multidisciplinary team of automation, electrical, AI and data
-    engineers delivering results across Mongolia's industrial sector.
+  title: Automation, electrical, AI and data specialists with 16+ years of proven
+    experience in complex mining environments.
+  text: A multidisciplinary team of automation, electrical, AI and data engineers
+    delivering results across Mongolia's industrial sector.
   members:
     - initials: BL
       name: Badraa Lkhagvaa
@@ -174,40 +175,40 @@ team:
         operations, with deep expertise in Emerson DeltaV DCS, Metso OCS 4-D
         advanced process control, Aveva PI data systems, and continuous
         improvement.
-      details: Previously led and delivered automation and optimization projects
-        at Oyu Tolgoi (Mongolia) and Kennecott Utah Copper (USA). Graduated from
+      details: Previously led and delivered automation and optimization projects at
+        Oyu Tolgoi (Mongolia) and Kennecott Utah Copper (USA). Graduated from
         Ural State Mining University in Automation of Technological Processes
         and Production.
     - initials: IG
       name: Ider Gerelsuren
       role: Co-founder — Electrical & Automation Engineer
-      bio: 8+ years in concentrator-plant maintenance, reliability, and
-        automation. Expert in low/medium-voltage systems, PLC programming,
-        instrumentation, and DeltaV.
+      bio: 8+ years in concentrator-plant maintenance, reliability, and automation.
+        Expert in low/medium-voltage systems, PLC programming, instrumentation,
+        and DeltaV.
       details: Improved equipment reliability and reduced downtime through CAPEX
         planning, asset management, and OEM partnerships. Graduated from MUST in
         Industrial Automation.
     - initials: TB
       name: Tsogt Batjargal
       role: Data & Software Engineer (Remote)
-      bio: Experienced in data-pipeline and ETL development and maintenance.
-        Skilled in Python, SQL and C#, with strong data modeling, analysis, and
+      bio: Experienced in data-pipeline and ETL development and maintenance. Skilled
+        in Python, SQL and C#, with strong data modeling, analysis, and
         visualization experience. Builds robust data integrations and
         communicates clearly with both technical and non-technical stakeholders.
-      details: Microcontroller Programming at the National University of
-        Mongolia. Data Analytics at Toronto School of Management. Computer
-        Programming at Niagara College.
+      details: Microcontroller Programming at the National University of Mongolia.
+        Data Analytics at Toronto School of Management. Computer Programming at
+        Niagara College.
     - initials: ZT
       name: Zulkhuu Tuya
       role: AI & Computer Vision Engineer
-      bio: AI and computer vision engineer with over a decade of experience
-        across robotics, 3D vision, sensor calibration, embedded systems, and
-        machine learning. His work spans 3D reconstruction, multi-sensor
-        registration, ROS-based robotics, localization, embedded vision
-        optimization, and image/video processing.
-      details: Industry experience at Sony, Kailas Robotics, and startup
-        ventures — bringing deep technical expertise in making cameras see,
-        understand, and measure the physical world.
+      bio: AI and computer vision engineer with over a decade of experience across
+        robotics, 3D vision, sensor calibration, embedded systems, and machine
+        learning. His work spans 3D reconstruction, multi-sensor registration,
+        ROS-based robotics, localization, embedded vision optimization, and
+        image/video processing.
+      details: Industry experience at Sony, Kailas Robotics, and startup ventures —
+        bringing deep technical expertise in making cameras see, understand, and
+        measure the physical world.
 contact:
   eyebrow: Get in touch
   title: Let us plan your next control-system upgrade
