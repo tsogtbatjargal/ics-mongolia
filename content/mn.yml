@@ -37,8 +37,8 @@ hero:
     url: "#services"
   image: /images/control-room-mining-site.jpg
   image_alt: Уурхайн удирдлагын өрөөнд DCS дэлгэц хянаж буй операторууд
-  photo_label: Алсын уурхайн дэмжлэг
-  photo_meta: 24/7 чухал тоноглол
+  photo_label: Үйлдвэрийн автоматжуулалт
+  photo_meta: Үйлдвэрийн удирдлага
   stats:
     - value: 16+ жил
       text: Уул уурхай ба үйлдвэрлэлийн автоматжуулалтын туршлага
