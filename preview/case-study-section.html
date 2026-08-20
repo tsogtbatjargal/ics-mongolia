@@ -1,0 +1,82 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>PROTOTYPE — Case study section</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+      .proto-banner {
+        position: sticky; top: 0; z-index: 20;
+        background: #ff7a1a; color: #0a0f1b; font-weight: 700;
+        text-align: center; padding: 0.5rem 1rem; font-size: 0.9rem;
+      }
+      .placeholder { color: var(--primary-strong); }
+      .case-card { display: flex; flex-direction: column; gap: 0.9rem; }
+      .case-stats { display: flex; gap: 1.5rem; flex-wrap: wrap; margin: 0.5rem 0; }
+      .case-stat { display: flex; flex-direction: column; }
+      .case-stat b { font-size: 1.4rem; color: var(--accent); }
+      .case-stat span { font-size: 0.85rem; color: var(--muted); }
+    </style>
+  </head>
+  <body>
+    <div class="proto-banner">PROTOTYPE — layout only. Every project name, metric, and result below is a bracketed placeholder — none of it is real. Nothing gets published until you supply actual project facts.</div>
+
+    <main style="padding: 3rem clamp(1.25rem, 5vw, 5rem) 5rem; max-width: 1200px; margin: 0 auto;">
+      <section class="section muted">
+        <div class="section-header">
+          <p class="eyebrow">Proof of work</p>
+          <h2>Measurable results from the field</h2>
+          <p>Before/after outcomes from real engagements — swap the placeholders below once you tell me which projects can be named publicly (or should be anonymized) and what the actual before/after numbers were.</p>
+        </div>
+        <div class="cards three-col">
+          <article class="card case-card">
+            <p class="eyebrow placeholder">[Project type, e.g. "Belt reliability upgrade"]</p>
+            <h3 class="placeholder">[Client name or "A Mongolian copper concentrator"]</h3>
+            <p class="placeholder">[1-2 sentence description of the problem and what ICS did about it]</p>
+            <div class="case-stats">
+              <div class="case-stat">
+                <b class="placeholder">[X%]</b>
+                <span class="placeholder">[metric, e.g. downtime reduced]</span>
+              </div>
+              <div class="case-stat">
+                <b class="placeholder">[Y weeks]</b>
+                <span class="placeholder">[delivery timeframe]</span>
+              </div>
+            </div>
+          </article>
+          <article class="card case-card">
+            <p class="eyebrow placeholder">[Project type]</p>
+            <h3 class="placeholder">[Client name]</h3>
+            <p class="placeholder">[Description]</p>
+            <div class="case-stats">
+              <div class="case-stat">
+                <b class="placeholder">[X%]</b>
+                <span class="placeholder">[metric]</span>
+              </div>
+              <div class="case-stat">
+                <b class="placeholder">[Y]</b>
+                <span class="placeholder">[metric]</span>
+              </div>
+            </div>
+          </article>
+          <article class="card case-card">
+            <p class="eyebrow placeholder">[Project type]</p>
+            <h3 class="placeholder">[Client name]</h3>
+            <p class="placeholder">[Description]</p>
+            <div class="case-stats">
+              <div class="case-stat">
+                <b class="placeholder">[X%]</b>
+                <span class="placeholder">[metric]</span>
+              </div>
+              <div class="case-stat">
+                <b class="placeholder">[Y]</b>
+                <span class="placeholder">[metric]</span>
+              </div>
+            </div>
+          </article>
+        </div>
+        <p style="margin-top:1.5rem; font-size:0.9rem;">To fill this in for real I need, per project: whether the client can be named (or must be anonymized), what the measurable before/after metric was (e.g. downtime %, alarm count, MTTR), and roughly how long delivery took.</p>
+      </section>
+    </main>
+  </body></html>

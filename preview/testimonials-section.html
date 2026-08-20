@@ -1,0 +1,69 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>PROTOTYPE — Testimonials section</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+      .proto-banner {
+        position: sticky; top: 0; z-index: 20;
+        background: #ff7a1a; color: #0a0f1b; font-weight: 700;
+        text-align: center; padding: 0.5rem 1rem; font-size: 0.9rem;
+      }
+      .quote-card { display: flex; flex-direction: column; gap: 1rem; }
+      .quote-mark { font-size: 2.5rem; line-height: 1; color: var(--accent); font-family: Georgia, serif; }
+      .quote-text { color: var(--text); font-size: 1.05rem; font-style: italic; margin: 0; }
+      .quote-attribution { display: flex; align-items: center; gap: 0.75rem; margin-top: 0.5rem; }
+      .placeholder { color: var(--primary-strong); }
+    </style>
+  </head>
+  <body>
+    <div class="proto-banner">PROTOTYPE — layout only. Every name, company, and quote below is a bracketed placeholder — none of it is real. Nothing gets published until you supply actual quotes with permission to use them.</div>
+
+    <main style="padding: 3rem clamp(1.25rem, 5vw, 5rem) 5rem; max-width: 1200px; margin: 0 auto;">
+      <section class="section">
+        <div class="section-header">
+          <p class="eyebrow">What clients say</p>
+          <h2>Trusted by mining and industrial teams across Mongolia</h2>
+          <p>Direct quotes from the people we've worked with — swap the placeholders below for real testimonials once you have them.</p>
+        </div>
+        <div class="cards three-col">
+          <article class="card quote-card">
+            <span class="quote-mark">"</span>
+            <p class="quote-text placeholder">[Placeholder quote — e.g. what changed after the engagement, in the client's own words]</p>
+            <div class="quote-attribution">
+              <div class="avatar placeholder">??</div>
+              <div>
+                <span style="display:block; font-weight:700;" class="placeholder">[Client name]</span>
+                <span class="muted-text placeholder">[Title, Company]</span>
+              </div>
+            </div>
+          </article>
+          <article class="card quote-card">
+            <span class="quote-mark">"</span>
+            <p class="quote-text placeholder">[Placeholder quote]</p>
+            <div class="quote-attribution">
+              <div class="avatar placeholder">??</div>
+              <div>
+                <span style="display:block; font-weight:700;" class="placeholder">[Client name]</span>
+                <span class="muted-text placeholder">[Title, Company]</span>
+              </div>
+            </div>
+          </article>
+          <article class="card quote-card">
+            <span class="quote-mark">"</span>
+            <p class="quote-text placeholder">[Placeholder quote]</p>
+            <div class="quote-attribution">
+              <div class="avatar placeholder">??</div>
+              <div>
+                <span style="display:block; font-weight:700;" class="placeholder">[Client name]</span>
+                <span class="muted-text placeholder">[Title, Company]</span>
+              </div>
+            </div>
+          </article>
+        </div>
+        <p style="margin-top:1.5rem; font-size:0.9rem;">Note: if a client prefers not to be named publicly, the usual alternative is an anonymized attribution — e.g. "Operations Manager, a Mongolian copper concentrator" — still real, just without the company name. Let me know per-quote which is appropriate.</p>
+      </section>
+    </main>
+  </body></html>

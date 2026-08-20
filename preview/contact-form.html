@@ -1,0 +1,96 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>PROTOTYPE — Contact form</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+      .proto-banner {
+        position: sticky; top: 0; z-index: 20;
+        background: #ff7a1a; color: #0a0f1b; font-weight: 700;
+        text-align: center; padding: 0.5rem 1rem; font-size: 0.9rem;
+      }
+      .proto-note {
+        margin-top: 1rem; font-size: 0.85rem; color: var(--muted);
+        border: 1px dashed var(--border); border-radius: 0.8rem; padding: 0.8rem 1rem;
+      }
+      .field-row { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+      .form-status { margin-top: 0.75rem; font-weight: 600; display: none; }
+      .form-status.ok { color: #6be675; }
+    </style>
+  </head>
+  <body>
+    <div class="proto-banner">PROTOTYPE — contact form UI only. Submitting shows a mock "sent" state — no real backend is wired up yet (that's a separate decision, see note below).</div>
+
+    <main style="padding: 3rem clamp(1.25rem, 5vw, 5rem) 5rem; max-width: 1100px; margin: 0 auto;">
+      <section class="section muted contact-cta">
+        <div class="section-header">
+          <p class="eyebrow">Get in touch</p>
+          <h2>Let us plan your next control-system upgrade</h2>
+          <p>We look forward to hearing from you.</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-panel">
+            <h3>Direct contacts</h3>
+            <ul class="contact-list">
+              <li>
+                <span>Badraa Lkhagvaa</span>
+                <a href="mailto:badraa@icsmongolia.com">badraa@icsmongolia.com</a>
+                <span class="contact-meta">+976 9990 8186</span>
+              </li>
+              <li>
+                <span>Ider Gerelsuren</span>
+                <a href="mailto:ider@icsmongolia.com">ider@icsmongolia.com</a>
+                <span class="contact-meta">+976 9448 0803</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="contact-panel">
+            <h3>Send a message</h3>
+            <form id="proto-contact-form">
+              <div class="field-row" style="margin-bottom:1rem;">
+                <label>Name
+                  <input type="text" name="name" required placeholder="Your name">
+                </label>
+                <label>Email
+                  <input type="email" name="email" required placeholder="you@company.com">
+                </label>
+              </div>
+              <label style="margin-bottom:1rem;">Company
+                <input type="text" name="company" placeholder="Mine / operation name">
+              </label>
+              <label style="margin-bottom:1rem;">Message
+                <textarea name="message" rows="4" required placeholder="What are you looking to solve?"></textarea>
+              </label>
+              <button class="btn primary" type="submit">Send message</button>
+              <p class="form-status" id="form-status">✓ (Demo only) Message captured — nothing was actually sent.</p>
+            </form>
+          </div>
+        </div>
+
+        <div class="proto-note">
+          <strong>What still needs a decision before this goes live:</strong> where the submission
+          actually goes. Two options from <code>PLAN.md</code> Phase 4:
+          <br>(a) a small Cloudflare Worker endpoint that emails the team (fits the existing
+          Workers stack, no third-party account) — recommended, since the site is already a
+          Worker.
+          <br>(b) a third-party form backend (e.g. Formspree) — faster to wire up, but adds an
+          external account/dependency.
+          <br>Either way, the visual form above wouldn't need to change — only the
+          <code>fetch()</code> call in the (not-yet-written) submit handler.
+        </div>
+      </section>
+    </main>
+
+    <script>
+      // Demo-only handler: this prototype does not send anything anywhere.
+      document.getElementById('proto-contact-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        document.getElementById('form-status').style.display = 'block';
+        document.getElementById('form-status').classList.add('ok');
+        this.reset();
+      });
+    </script>
+  </body></html>

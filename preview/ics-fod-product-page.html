@@ -1,0 +1,152 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>PROTOTYPE — ICS-FOD Product Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+      /* prototype-only helpers — not part of the real site's styles.css */
+      .proto-banner {
+        position: sticky; top: 0; z-index: 20;
+        background: #ff7a1a; color: #0a0f1b; font-weight: 700;
+        text-align: center; padding: 0.5rem 1rem; font-size: 0.9rem;
+      }
+      .spec-table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+      .spec-table th, .spec-table td {
+        text-align: left; padding: 0.9rem 1rem; border-bottom: 1px solid var(--border);
+        color: var(--muted); font-weight: 400;
+      }
+      .spec-table th { color: var(--text); width: 40%; font-weight: 700; }
+      .how-steps { counter-reset: step; margin-top: 2rem; display: grid; gap: 1rem; }
+      .how-step { display: flex; gap: 1rem; align-items: flex-start; }
+      .how-step .num {
+        flex: 0 0 auto; width: 2.5rem; height: 2.5rem; border-radius: 999px;
+        background: rgba(255,122,26,0.14); border: 1px solid var(--border);
+        display: grid; place-items: center; font-weight: 800; color: var(--accent);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="proto-banner">PROTOTYPE — dedicated ICS-FOD product page, not linked from the live site. All copy below is real content already on the homepage, just restructured.</div>
+    <header class="hero" id="top">
+      <nav class="nav">
+        <a class="logo" href="../en/">
+          <img src="../images/ics-logo.png" alt="ICS Mongolia">
+        </a>
+        <ul class="nav-links">
+          <li><a href="../en/#overview">Overview</a></li>
+          <li><a href="../en/#services">Solutions</a></li>
+          <li><a class="active" href="#top">ICS-FOD</a></li>
+          <li><a href="../en/#team">Team</a></li>
+          <li><a href="../en/#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="hero-shell">
+        <div class="hero-copy">
+          <p class="eyebrow">AI Solutions — ICS-FOD</p>
+          <h1>Foreign Object Detection for mining conveyor belts</h1>
+          <p class="lede">Continuous, real-time detection of foreign objects on conveyor belts in mining and mineral processing operations — preventing costly belt damage, equipment failures, and unplanned production downtime.</p>
+          <div class="hero-cta">
+            <a class="btn primary" href="../en/#contact">Request a demo</a>
+            <a class="btn ghost" href="#specs">View specifications</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-photo">
+            <picture>
+              <source srcset="../images/ics-fod-product.webp" type="image/webp">
+              <img src="../images/ics-fod-product.png" alt="ICS-FOD live foreign-object-detection user interface" loading="lazy">
+            </picture>
+            <div class="photo-label">
+              <span>ICS-FOD</span>
+              <span class="dot"></span>
+              <span>Live detection UI</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="section-header">
+          <p class="eyebrow">What it does</p>
+          <h2>An AI engine, camera, and alarm system in one platform</h2>
+          <p>The ICS-FOD is an AI system that provides continuous, real-time detection of foreign objects on conveyor belts in mining and mineral processing operations. By combining an AI engine, embedded computing device, industrial-grade camera, and a configurable alarm and integration platform, ICS-FOD identifies hazardous objects before they reach critical downstream equipment.</p>
+        </div>
+        <div class="cards three-col ai-features">
+          <article class="card ai-feature">
+            <h3>Deep Learning Vision</h3>
+            <p>Detects ferrous &amp; non-ferrous tramp metal and oversized objects — classes missed by conventional metal detectors.</p>
+          </article>
+          <article class="card ai-feature">
+            <h3>&lt; 1s Latency</h3>
+            <p>From object entering camera FOV to alarm output — instant belt stop on confirmed detection.</p>
+          </article>
+          <article class="card ai-feature">
+            <h3>24 / 7 Monitoring</h3>
+            <p>No blind spots between inspections. Operates overnight and during shift changes with no operator input.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="specs" class="section muted">
+        <div class="section-header">
+          <p class="eyebrow">Specifications</p>
+          <h2>What's in the system</h2>
+          <p>Restructured from the same platform description above into a scannable spec sheet — a common pattern for product pages that this content doesn't have room for as a homepage card.</p>
+        </div>
+        <table class="spec-table">
+          <tr><th>Detection method</th><td>Deep-learning computer vision (custom-trained on mining-specific data)</td></tr>
+          <tr><th>Object classes</th><td>Ferrous &amp; non-ferrous tramp metal, oversized objects</td></tr>
+          <tr><th>Response latency</th><td>&lt; 1 second from object entering camera field of view to alarm output</td></tr>
+          <tr><th>Operating schedule</th><td>24/7 — including overnight and shift changes, no operator input required</td></tr>
+          <tr><th>Hardware</th><td>Embedded computing device + industrial-grade camera</td></tr>
+          <tr><th>Integration</th><td>Configurable alarm and integration platform (belt-stop interlock)</td></tr>
+        </table>
+        <p style="margin-top:1rem; font-size:0.9rem;">⚠️ <strong>Not yet on the real site:</strong> exact camera model, mounting requirements, environmental ratings (IP/temperature range), and integration protocol (e.g. Modbus/OPC-UA) aren't documented anywhere I could find — this table only restates facts already published. If you have a datasheet, send it over and I'll fill these in for real.</p>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <p class="eyebrow">How it works</p>
+          <h2>From detection to belt stop</h2>
+        </div>
+        <div class="how-steps">
+          <div class="how-step">
+            <div class="num">1</div>
+            <div><h3 style="margin:0 0 0.3rem;">Camera watches the belt</h3><p style="margin:0;">The industrial-grade camera continuously monitors the conveyor line, feeding video to the embedded AI engine.</p></div>
+          </div>
+          <div class="how-step">
+            <div class="num">2</div>
+            <div><h3 style="margin:0 0 0.3rem;">AI classifies objects in real time</h3><p style="margin:0;">The deep-learning model, trained on mining-specific data, identifies tramp metal and oversized objects as they enter the frame.</p></div>
+          </div>
+          <div class="how-step">
+            <div class="num">3</div>
+            <div><h3 style="margin:0 0 0.3rem;">Alarm fires in under a second</h3><p style="margin:0;">On confirmed detection, the configurable alarm and integration platform triggers — including an instant belt stop.</p></div>
+          </div>
+          <div class="how-step">
+            <div class="num">4</div>
+            <div><h3 style="margin:0 0 0.3rem;">Downstream equipment is protected</h3><p style="margin:0;">Hazardous objects are caught before reaching critical downstream equipment, preventing belt damage and unplanned downtime.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section muted contact-cta">
+        <div class="section-header">
+          <p class="eyebrow">Get in touch</p>
+          <h2>See ICS-FOD on your operation</h2>
+          <p>Talk to the team about fitting ICS-FOD to your conveyor lines.</p>
+        </div>
+        <div class="hero-cta">
+          <a class="btn primary" href="../en/#contact">Contact us</a>
+          <a class="btn ghost" href="../en/">Back to homepage</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© 2026 Industrial Control Solutions LLC. All rights reserved. — PROTOTYPE PAGE.</p>
+    </footer>
+  </body></html>
