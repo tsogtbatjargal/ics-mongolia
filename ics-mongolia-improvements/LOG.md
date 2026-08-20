@@ -21,7 +21,14 @@ Append-only. Newest entry at the top. Each entry: date, what got done, what's ne
 - Verified: `npm run build` clean, local-asset-reference checker passes, JSON-LD is valid JSON
   on both pages, `script.js` syntax OK, local HTTP smoke test on `/`, `/en/`, `robots.txt`,
   `sitemap.xml`, and the new `.webp` files all returned 200.
-- Not yet committed/pushed — leaving that for explicit confirmation before touching git.
+- Committed (`c2fc054`) and pushed. `git push` was rejected first — 4 commits had landed on
+  `origin/main` in the meantime via Pages CMS (real copy edits to `content/en.yml`/`mn.yml`:
+  reworded `overview.text`, `hero.photo_label`/`photo_meta`, plus a Mongolian typo fix).
+  Merged clean (no conflicts — their edits and mine didn't touch the same lines), then re-ran
+  `npm run build` to sync the new CMS text into `en/index.html`/`mn/index.html` on top of the
+  Phase 1 structural changes, verified again, and pushed as `b91ce4f`. Confirmed my hardcoded
+  OG/Twitter description text still matches the actual `<title>`/`<meta description>` tags,
+  since those aren't YAML-driven and weren't touched by the CMS edit.
 - **Next:** Phase 2 (analytics — needs your confirmation on provider, default assumption is
   Cloudflare Web Analytics) or skip ahead to whichever Phase 3/4 item you have real input for.
 
