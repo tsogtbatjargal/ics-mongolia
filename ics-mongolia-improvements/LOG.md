@@ -4,6 +4,24 @@ Append-only. Newest entry at the top. Each entry: date, what got done, what's ne
 
 ---
 
+## 2026-08-20 — Phase 2 (Analytics) done via Cloudflare auto-inject
+
+- User confirmed Cloudflare Web Analytics as the provider and enabled it directly in Badraa's
+  Cloudflare dashboard (**Analytics & Logs → Web Analytics → Manage site**). Cloudflare offered
+  automatic edge-side beacon injection (since `icsmongolia.com` is already a proxied zone
+  there) instead of the manual-snippet route `PLAN.md` had originally planned — user clicked
+  plain **Enable** (all visitors, no EU exclusion).
+- Net result: no repo changes needed at all — no HTML edits, no rebuild, no deploy. The
+  original manual-snippet checklist in `PLAN.md` is kept collapsed for reference in case
+  auto-inject ever needs to be swapped for a version-controlled snippet later.
+- Marked Phase 2 ✅ in `PLAN.md`, added a "Decisions made so far" entry.
+- **Not yet verified:** actual traffic appearing in the Web Analytics dashboard — needs a real
+  visit + a few minutes, then a dashboard check. Nothing to commit/push this session since no
+  files in the deployed site changed (only this planning folder, which is `.assetsignore`d).
+- **Next:** confirm traffic is showing up in the dashboard when convenient, then move to
+  Phase 3/4 once you have real input (case study facts, testimonial quotes, ICS-FOD page
+  scope, contact-form backend choice, or blog commitment).
+
 ## 2026-08-20 — MN overview text sync + Phase 2 prep
 
 - Spotted that the concurrent CMS edit (see previous entry) reworded `content/en.yml`'s

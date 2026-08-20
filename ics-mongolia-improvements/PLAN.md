@@ -61,17 +61,20 @@ script.js` (OK), local `python3 -m http.server` smoke test (`/`, `/en/`, `robots
 
 ## Phase 2 — Analytics
 
-- ❓ **Pick an analytics provider, then wire it up.** Recommendation: **Cloudflare Web
-  Analytics** — free, no cookie banner needed (privacy-friendly, no client-side cookies), and
-  it's a natural fit since the site already deploys via Cloudflare Workers on Badraa's account.
-  Alternative if you'd rather have fuller dashboards: Plausible (paid) or GA4 (free, but needs
-  a cookie/consent notice for EU-style compliance — probably not a real concern for a
-  Mongolia-focused audience, flagging for completeness).
-  - ⏸ Blocked on: (a) you confirming the provider (default assumption: Cloudflare Web
-    Analytics), and (b) someone with access to Badraa's Cloudflare account completing the
-    dashboard-side signup step below.
+- ✅ **Cloudflare Web Analytics enabled** — since `icsmongolia.com` is already a Cloudflare
+  zone (proxied through the Workers custom domain), the dashboard offered **automatic
+  edge-side beacon injection** instead of the manual-snippet path originally planned below —
+  simpler than expected, zero repo changes needed. User enabled it via **Analytics & Logs →
+  Web Analytics → Manage site → Enable** (the plain auto-inject option, all visitors included,
+  no EU exclusion) on 2026-08-20. No HTML/YAML edits, no rebuild, no deploy — Cloudflare
+  injects the script at the edge on every response. **Verify:** check the Web Analytics
+  dashboard after a real visit to confirm traffic is being recorded (may take a few minutes to
+  appear).
 
-  **Ready-to-execute checklist (Cloudflare Web Analytics path), once unblocked:**
+  <details>
+  <summary>Original manual-snippet plan (not used — kept for reference in case auto-inject
+  ever needs to be turned off in favor of a version-controlled snippet)</summary>
+
   1. In Badraa's Cloudflare dashboard: **Analytics & Logs → Web Analytics → Add a site**,
      enter `icsmongolia.com`. Cloudflare hands back a JS beacon snippet, e.g.:
      `<script defer src='https://static.cloudflareinsights.com/beacon.min.js'
@@ -85,11 +88,7 @@ script.js` (OK), local `python3 -m http.server` smoke test (`/`, `/en/`, `robots
      script.js`, local smoke test), commit, push.
   5. Confirm in the Cloudflare dashboard that traffic starts appearing after the next real
      visit (may take a few minutes to show up).
-
-  If GA4 is chosen instead: step 1 becomes creating a GA4 property + data stream for
-  `icsmongolia.com` in Google Analytics, which yields a `G-XXXXXXX` measurement ID; steps 2-5
-  are the same shape but with the `gtag.js` snippet instead, plus a decision on whether a
-  cookie-consent banner is wanted.
+  </details>
 
 ## Phase 3 — Content & credibility (needs real input — not fabricated)
 
@@ -131,6 +130,9 @@ from you or the team.
 - [Mongolian `overview.text` sync](LOG.md) — a concurrent CMS
   edit reworded the English overview paragraph but left the Mongolian one stale; translated
   and re-synced (machine-quality, flagged for native review alongside the Phase 3 MN pass).
+- [Analytics provider: Cloudflare Web Analytics, auto-inject](LOG.md) — chosen over GA4/Plausible;
+  enabled via dashboard auto-injection rather than a manually-added script tag, since the site
+  is already a Cloudflare zone. No code changes required.
 
 ## Out of scope
 
