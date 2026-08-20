@@ -64,14 +64,32 @@ script.js` (OK), local `python3 -m http.server` smoke test (`/`, `/en/`, `robots
 - ❓ **Pick an analytics provider, then wire it up.** Recommendation: **Cloudflare Web
   Analytics** — free, no cookie banner needed (privacy-friendly, no client-side cookies), and
   it's a natural fit since the site already deploys via Cloudflare Workers on Badraa's account.
-  Setup is a dashboard toggle (Badraa's Cloudflare account → Web Analytics → add site) that
-  hands back a JS beacon snippet to paste into both language pages — so this needs a short
-  dashboard step from whoever has access to Badraa's account, then a code change from me.
   Alternative if you'd rather have fuller dashboards: Plausible (paid) or GA4 (free, but needs
   a cookie/consent notice for EU-style compliance — probably not a real concern for a
   Mongolia-focused audience, flagging for completeness).
-  - ⏸ Blocked until you confirm the provider (default assumption: Cloudflare Web Analytics)
-    and someone completes the dashboard-side signup step.
+  - ⏸ Blocked on: (a) you confirming the provider (default assumption: Cloudflare Web
+    Analytics), and (b) someone with access to Badraa's Cloudflare account completing the
+    dashboard-side signup step below.
+
+  **Ready-to-execute checklist (Cloudflare Web Analytics path), once unblocked:**
+  1. In Badraa's Cloudflare dashboard: **Analytics & Logs → Web Analytics → Add a site**,
+     enter `icsmongolia.com`. Cloudflare hands back a JS beacon snippet, e.g.:
+     `<script defer src='https://static.cloudflareinsights.com/beacon.min.js'
+     data-cf-beacon='{"token": "..."}'></script>`
+  2. Paste that token/snippet here in this doc (or send it to me) — it's a public client-side
+     token, not a secret, safe to store in this repo.
+  3. I add the snippet to `en/index.html`, `mn/index.html`, and the root `index.html` (raw HTML
+     edit, same pattern as the Phase 1 meta-tag work — not YAML-driven, so no `build.js` or
+     `content/*.yml` changes needed).
+  4. Rebuild, run the same verification pass as Phase 1 (asset-ref checker, `node --check
+     script.js`, local smoke test), commit, push.
+  5. Confirm in the Cloudflare dashboard that traffic starts appearing after the next real
+     visit (may take a few minutes to show up).
+
+  If GA4 is chosen instead: step 1 becomes creating a GA4 property + data stream for
+  `icsmongolia.com` in Google Analytics, which yields a `G-XXXXXXX` measurement ID; steps 2-5
+  are the same shape but with the `gtag.js` snippet instead, plus a decision on whether a
+  cookie-consent banner is wanted.
 
 ## Phase 3 — Content & credibility (needs real input — not fabricated)
 
@@ -110,8 +128,9 @@ from you or the team.
 
 ## Decisions made so far
 
-*(none yet — will be appended here as they're resolved, one line each, pointing at the LOG
-entry with the detail)*
+- [Mongolian `overview.text` sync](LOG.md) — a concurrent CMS
+  edit reworded the English overview paragraph but left the Mongolian one stale; translated
+  and re-synced (machine-quality, flagged for native review alongside the Phase 3 MN pass).
 
 ## Out of scope
 

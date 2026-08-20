@@ -4,6 +4,29 @@ Append-only. Newest entry at the top. Each entry: date, what got done, what's ne
 
 ---
 
+## 2026-08-20 — MN overview text sync + Phase 2 prep
+
+- Spotted that the concurrent CMS edit (see previous entry) reworded `content/en.yml`'s
+  `overview.text` to a new "resource-limited environments" pitch but left
+  `content/mn.yml`'s `overview.text` on the old wording — EN/MN had gone out of sync.
+  Translated the new EN paragraph into Mongolian, updated `content/mn.yml`, rebuilt, verified
+  (asset-ref checker, `node --check script.js`), committed (`85d2f52`), pushed. Flagged in
+  `PLAN.md` that this is a machine-quality translation, same caliber as the rest of the
+  existing MN copy — still needs the native-speaker pass already queued in Phase 3.
+  Recorded as the first entry under `PLAN.md`'s "Decisions made so far".
+- Checked tsogtb.com (a separate, unrelated personal-portfolio project/repo — not part of this
+  plan) at the user's request; confirmed still live and correct from an earlier session, no
+  action needed there.
+- Fleshed out Phase 2 (Analytics) in `PLAN.md` into a ready-to-execute checklist for the
+  Cloudflare Web Analytics path (dashboard steps → snippet → where it gets added → verification),
+  plus a shorter note on what the GA4 path would look like instead. Still blocked on: you
+  confirming the provider, and someone with Badraa's Cloudflare account access completing the
+  dashboard signup step to hand back the beacon token.
+- **Next:** once you confirm the analytics provider (or hand me the Cloudflare beacon
+  token/GA4 measurement ID), Phase 2 is ready to execute in one pass. Otherwise, next candidate
+  is a Phase 3/4 item once you have real input (case study facts, testimonial quotes, ICS-FOD
+  page scope, contact-form backend choice, or blog commitment).
+
 ## 2026-08-20 — Phase 1 implementation
 
 - Completed all of Phase 1 (Foundation): OG/Twitter meta tags, `robots.txt` + `sitemap.xml`,
