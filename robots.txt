@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://icsmongolia.com/sitemap.xml
