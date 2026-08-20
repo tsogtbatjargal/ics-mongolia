@@ -696,11 +696,6 @@ textarea {
   color: var(--muted);
 }
 
-.contact-grid.single {
-  grid-template-columns: minmax(0, 560px);
-  justify-content: start;
-}
-
 .ai-product {
   margin-top: 2rem;
   display: grid;
@@ -936,7 +931,7 @@ textarea {
   font-weight: 700;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1080px) {
   .nav {
     position: relative;
   }

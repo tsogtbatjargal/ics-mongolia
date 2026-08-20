@@ -4,6 +4,30 @@ Append-only. Newest entry at the top. Each entry: date, what got done, what's ne
 
 ---
 
+## 2026-08-20 — Post-productionization cleanup (4 small fixes), committed + pushed
+
+- After the Phase 3/4 productionization push, user asked "anything to improve or leftover
+  things?" and authorized fixing four small items found during self-review:
+  1. **Mobile nav breakpoint widened 900px → 1080px** (`styles.css`) — the nav grew to 7 items
+     (added "Results") and risked wrapping/overflow before the hamburger kicked in at narrower
+     viewports; no browser available in this environment to confirm the exact overflow point,
+     so widened the breakpoint defensively.
+  2. **Removed dead CSS** — `.contact-grid.single` rule in `styles.css`, orphaned once the
+     contact form made `.contact-grid` always two-column.
+  3. **ICS-FOD product page nav labels synced from CMS** — `buildProductPage()` in `build.js`
+     now updates `.nav-links` `textContent` from `content/*.yml`'s `navigation` list (labels
+     only, hrefs left alone since the product page intentionally uses cross-page absolute
+     links like `/en/#overview` instead of the homepage's same-page anchors).
+  4. **`og:image:width`/`og:image:height` added** to both product-page files — dimensions
+     (764×489) read directly from the PNG's IHDR header via a small Node script (PIL wasn't
+     available in this environment).
+- Verified: `npm run build` clean, local-asset-reference checker clean, `node --check
+  script.js` OK, JSON-LD valid on all 4 generated pages, local HTTP smoke test all 200.
+- Committed and pushed to `main` per user's "fix them and commit push."
+- **Next:** Phase 3 content (real case-study facts, testimonial quotes) and the MN
+  native-review pass remain the open items; Phase 4's only remaining item is the blog/news
+  scope decision.
+
 ## 2026-08-20 — Phase 3/4 prototypes productionized (CMS-wired, not yet committed)
 
 - After reviewing the four `/preview/` drafts live, user asked to wire all four into the real

@@ -307,6 +307,14 @@ function buildProductPage(lang) {
 
   // ── Meta ──────────────────────────────────────────────────────────────────
   doc.documentElement.lang = c.language.code;
+
+  // Nav labels only — hrefs stay as cross-page links (e.g. "/en/#overview"),
+  // not the homepage's same-page anchors, so they aren't overwritten here.
+  const navLinks = doc.querySelectorAll('.nav-links > li:not(.language-switch) a');
+  c.navigation.forEach((item, i) => {
+    if (navLinks[i]) navLinks[i].textContent = item.label;
+  });
+
   if (pp.meta_title) {
     doc.title = pp.meta_title;
     const ogTitle = doc.querySelector('meta[property="og:title"]');
