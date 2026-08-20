@@ -76,6 +76,224 @@ components:
         type: text
         required: true
 
+  spec_item:
+    type: object
+    fields:
+      - name: label
+        label: Label
+        type: string
+        required: true
+      - name: value
+        label: Value
+        type: text
+        required: true
+
+  how_it_works_item:
+    type: object
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: text
+        label: Text
+        type: text
+        required: true
+
+  product_page:
+    type: object
+    fields:
+      - name: meta_title
+        label: Page <title>
+        type: string
+      - name: meta_description
+        label: Meta description
+        type: text
+      - name: hero_eyebrow
+        label: Hero eyebrow
+        type: string
+      - name: hero_title
+        label: Hero title
+        type: string
+      - name: hero_lede
+        label: Hero lead text
+        type: text
+      - name: primary_cta
+        label: Primary CTA
+        component: cta
+      - name: secondary_cta
+        label: Secondary CTA
+        component: cta
+      - name: intro_eyebrow
+        label: Intro eyebrow
+        type: string
+      - name: intro_title
+        label: Intro title
+        type: string
+      - name: specs_eyebrow
+        label: Specs eyebrow
+        type: string
+      - name: specs_title
+        label: Specs title
+        type: string
+      - name: specs_text
+        label: Specs intro text
+        type: text
+      - name: specs
+        label: Specifications
+        component: spec_item
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{label}"
+      - name: how_it_works_eyebrow
+        label: How-it-works eyebrow
+        type: string
+      - name: how_it_works_title
+        label: How-it-works title
+        type: string
+      - name: how_it_works
+        label: How-it-works steps
+        component: how_it_works_item
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+      - name: contact_eyebrow
+        label: Contact CTA eyebrow
+        type: string
+      - name: contact_title
+        label: Contact CTA title
+        type: string
+      - name: contact_text
+        label: Contact CTA text
+        type: text
+      - name: contact_cta_label
+        label: Contact CTA button label
+        type: string
+      - name: back_to_home_label
+        label: "Back to homepage link label"
+        type: string
+
+  case_study:
+    type: object
+    fields:
+      - name: category
+        label: Project type
+        type: string
+        required: true
+      - name: client
+        label: Client (name or anonymized description)
+        type: string
+        required: true
+      - name: description
+        label: Description
+        type: text
+        required: true
+      - name: stat_1_value
+        label: Stat 1 value
+        type: string
+      - name: stat_1_label
+        label: Stat 1 label
+        type: string
+      - name: stat_2_value
+        label: Stat 2 value
+        type: string
+      - name: stat_2_label
+        label: Stat 2 label
+        type: string
+
+  testimonial:
+    type: object
+    fields:
+      - name: quote
+        label: Quote
+        type: text
+        required: true
+      - name: name
+        label: Client name
+        type: string
+        required: true
+      - name: role
+        label: Title, company
+        type: string
+
+  results_section:
+    type: object
+    fields:
+      - name: eyebrow
+        label: Eyebrow
+        type: string
+      - name: title
+        label: Title
+        type: string
+      - name: text
+        label: Text
+        type: text
+      - name: case_studies_title
+        label: Case studies title
+        type: string
+      - name: case_studies_text
+        label: Case studies intro text
+        type: text
+      - name: case_studies
+        label: Case studies
+        component: case_study
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{client}"
+      - name: testimonials_title
+        label: Testimonials title
+        type: string
+      - name: testimonials_text
+        label: Testimonials intro text
+        type: text
+      - name: testimonials
+        label: Testimonials
+        component: testimonial
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{name}"
+
+  contact_form:
+    type: object
+    fields:
+      - name: title
+        label: Form title
+        type: string
+      - name: name_label
+        label: Name field label
+        type: string
+      - name: name_placeholder
+        label: Name field placeholder
+        type: string
+      - name: email_label
+        label: Email field label
+        type: string
+      - name: email_placeholder
+        label: Email field placeholder
+        type: string
+      - name: company_label
+        label: Company field label
+        type: string
+      - name: company_placeholder
+        label: Company field placeholder
+        type: string
+      - name: message_label
+        label: Message field label
+        type: string
+      - name: message_placeholder
+        label: Message field placeholder
+        type: string
+      - name: submit_label
+        label: Submit button label
+        type: string
+      - name: note
+        label: Note under the form
+        type: text
+
   approach_step:
     type: object
     fields:
@@ -293,6 +511,15 @@ components:
               collapsible:
                 collapsed: true
                 summary: "{title}"
+          - name: page_cta_label
+            label: "\"Full specifications\" button label"
+            type: string
+          - name: page_cta_url
+            label: "\"Full specifications\" button URL"
+            type: string
+          - name: product_page
+            label: Dedicated product page
+            component: product_page
 
   approach:
     type: object
@@ -359,6 +586,9 @@ components:
           collapsible:
             collapsed: true
             summary: "{name}"
+      - name: form
+        label: Contact form
+        component: contact_form
 
   footer:
     type: object
@@ -409,6 +639,9 @@ content:
           - name: approach
             label: Approach
             component: approach
+          - name: results
+            label: Results (case studies + testimonials)
+            component: results_section
           - name: team
             label: Team
             component: team
@@ -453,6 +686,9 @@ content:
           - name: approach
             label: Approach
             component: approach
+          - name: results
+            label: Results (case studies + testimonials)
+            component: results_section
           - name: team
             label: Team
             component: team

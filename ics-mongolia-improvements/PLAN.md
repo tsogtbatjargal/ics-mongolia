@@ -92,33 +92,38 @@ script.js` (OK), local `python3 -m http.server` smoke test (`/`, `/en/`, `robots
 
 ## Phase 3 — Content & credibility (needs real input — not fabricated)
 
-These all require facts I don't have and shouldn't invent — client names, results, quotes.
-I can draft structure/copy once given the raw facts, but the facts themselves have to come
-from you or the team.
+Structure/layout for the first two items is now built and CMS-editable (see below) — what's
+still missing is the real facts themselves, which I shouldn't invent.
 
-- ⏸ **Case study / proof-of-work section** — e.g. "reduced belt downtime by X% at [mine]".
-  Needs: which project(s) can be named publicly, what the measurable before/after was, and
-  whether the client is OK being named (or should be anonymized, e.g. "a Mongolian copper
-  concentrator").
-- ⏸ **Testimonials / client quotes** — needs actual quotes from partners, with permission to
-  publish name/title/company.
+- 🔵 **Case study / proof-of-work section** — structure built into the homepage `#results`
+  section and CMS (`results.case_studies` in `content/*.yml`, editable via Pages CMS). Content
+  is still 3 bracketed placeholder entries. Needs: which project(s) can be named publicly, what
+  the measurable before/after was, and whether the client is OK being named (or should be
+  anonymized, e.g. "a Mongolian copper concentrator").
+- 🔵 **Testimonials / client quotes** — same status: structure built (`results.testimonials`,
+  same `#results` section, CMS-editable), content still placeholder. Needs actual quotes from
+  partners, with permission to publish name/title/company.
 - ⏸ **Mongolian copy — real translation pass.** CLAUDE.md already flags the current MN copy
   as placeholder/demo, not final marketing text. Needs a native-speaker review (Badraa/Ider are
-  presumably the right people) rather than a machine re-translation.
+  presumably the right people) rather than a machine re-translation. The new Results/product-page
+  MN copy added this session is machine-quality too — same queue.
 
-## Phase 4 — Structural (needs scope decisions)
+## Phase 4 — Structural
 
-- ❓ **Dedicated ICS-FOD product page** (`/products/ics-fod/` or similar) — the product has
-  real specs (<1s latency, 24/7 monitoring, deep-learning vision) currently compressed into
-  three feature cards on the homepage. A dedicated page could target search intent like
-  "foreign object detection mining Mongolia" directly, and host a datasheet/demo video if one
-  exists. Needs a scope decision: worth the structural change now, or later once there's a demo
-  video/datasheet to anchor it?
-- ❓ **Contact form vs. current mailto links.** Current contact section is just names + emails
-  + phones. A real form lowers friction but needs a submission backend — options: (a) a small
-  Cloudflare Worker endpoint (fits the existing stack, no third-party dependency), or (b) a
-  third-party form service (Formspree etc., needs an account signup). Recommendation: (a),
-  since the site is already a Cloudflare Worker — no new account/dependency needed.
+- ✅ **Dedicated ICS-FOD product page** — built at `/en/products/ics-fod/` and
+  `/mn/products/ics-fod/`, linked from a "Full specifications" button in the homepage AI
+  Solutions section. Real specs restructured into a spec table + "how it works" steps, fully
+  CMS-editable (`ai_solutions.product.product_page` in `content/*.yml`). Added to `sitemap.xml`
+  with hreflang alternates. Not yet filled in: exact camera model, mounting requirements,
+  environmental/IP ratings, integration protocol — none of that was published anywhere to pull
+  from; add if a real datasheet turns up.
+- ✅ **Contact form** — added next to "Direct contacts" on the homepage contact section, fully
+  CMS-editable labels/placeholders (`contact.form` in `content/*.yml`). Ships today with no new
+  backend: submitting builds a `mailto:` link (via `script.js`) pre-filled with the visitor's
+  message, addressed to badraa@/ider@icsmongolia.com — same delivery reliability as the
+  existing mailto links, chosen specifically over a fake "success" state so no lead is silently
+  lost. A real POST-based Worker endpoint remains a possible future upgrade if mailto ever
+  feels like friction.
 - ❓ **Blog / news section** — helps SEO and signals an active company, but only worth doing if
   someone will actually post to it periodically. Needs a decision on whether that commitment
   exists before building the scaffolding.
@@ -133,6 +138,10 @@ from you or the team.
 - [Analytics provider: Cloudflare Web Analytics, auto-inject](LOG.md) — chosen over GA4/Plausible;
   enabled via dashboard auto-injection rather than a manually-added script tag, since the site
   is already a Cloudflare zone. No code changes required.
+- [Phase 3/4 prototypes productionized](LOG.md) — after reviewing the four `/preview/` drafts
+  live, user asked to wire all four into the real, CMS-editable site rather than keep them as
+  static drafts. `/preview/` folder removed (superseded). Contact form ships with a `mailto:`
+  handler, not a fake success state — see Phase 4 above for why.
 
 ## Out of scope
 

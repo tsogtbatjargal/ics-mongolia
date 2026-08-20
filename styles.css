@@ -779,6 +779,151 @@ textarea {
   margin: 0;
 }
 
+.spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.spec-table th,
+.spec-table td {
+  text-align: left;
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.spec-table th {
+  color: var(--text);
+  width: 40%;
+  font-weight: 700;
+}
+
+.how-steps {
+  margin-top: 2rem;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.how-step {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.how-step h3 {
+  margin: 0 0 0.3rem;
+}
+
+.how-step p {
+  margin: 0;
+}
+
+.how-step .num {
+  flex: 0 0 auto;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  background: rgba(255, 122, 26, 0.14);
+  border: 1px solid var(--border);
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.results-subhead {
+  margin: 2.5rem 0 0.4rem;
+  font-size: 1.4rem;
+}
+
+.results-subhead:first-of-type {
+  margin-top: 2rem;
+}
+
+.results-subtext {
+  margin: 0;
+  max-width: 760px;
+}
+
+.case-card,
+.quote-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.case-card h3 {
+  margin: 0;
+}
+
+.case-stats {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin: 0.5rem 0 0;
+}
+
+.case-stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.case-stat b {
+  font-size: 1.4rem;
+  color: var(--accent);
+}
+
+.case-stat span {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.quote-mark {
+  font-size: 2.5rem;
+  line-height: 1;
+  color: var(--accent);
+  font-family: Georgia, serif;
+}
+
+.quote-text {
+  color: var(--text);
+  font-size: 1.05rem;
+  font-style: italic;
+  margin: 0;
+}
+
+.quote-attribution {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.quote-name {
+  display: block;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.field-row {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  margin-bottom: 1rem;
+}
+
+.contact-form label {
+  margin-bottom: 1rem;
+}
+
+.contact-form-note {
+  margin: 0.75rem 0 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
 .footer {
   text-align: center;
   padding: 2rem 1rem 3rem;

@@ -16,6 +16,8 @@ navigation:
     url: "#ai-solutions"
   - label: Approach
     url: "#approach"
+  - label: Results
+    url: "#results"
   - label: Team
     url: "#team"
   - label: Contact
@@ -134,6 +136,61 @@ ai_solutions:
       - title: 24 / 7 Monitoring
         text: No blind spots between inspections. Operates overnight and during shift
           changes with no operator input.
+    page_cta_label: Full specifications
+    page_cta_url: /en/products/ics-fod/
+    product_page:
+      meta_title: ICS-FOD — Foreign Object Detection System | ICS Mongolia
+      meta_description: AI-powered foreign object detection for mining conveyor belts —
+        deep learning vision, under 1 second latency, 24/7 monitoring.
+      hero_eyebrow: AI Solutions — ICS-FOD
+      hero_title: Foreign Object Detection for mining conveyor belts
+      hero_lede: Continuous, real-time detection of foreign objects on conveyor belts in
+        mining and mineral processing operations — preventing costly belt damage,
+        equipment failures, and unplanned production downtime.
+      primary_cta:
+        label: Request a demo
+        url: /en/#contact
+      secondary_cta:
+        label: View specifications
+        url: "#specs"
+      intro_eyebrow: What it does
+      intro_title: An AI engine, camera, and alarm system in one platform
+      specs_eyebrow: Specifications
+      specs_title: What's in the system
+      specs_text: A closer look at the platform described above.
+      specs:
+        - label: Detection method
+          value: Deep-learning computer vision (custom-trained on mining-specific data)
+        - label: Object classes
+          value: Ferrous & non-ferrous tramp metal, oversized objects
+        - label: Response latency
+          value: "< 1 second from object entering camera field of view to alarm output"
+        - label: Operating schedule
+          value: 24/7 — including overnight and shift changes, no operator input required
+        - label: Hardware
+          value: Embedded computing device + industrial-grade camera
+        - label: Integration
+          value: Configurable alarm and integration platform (belt-stop interlock)
+      how_it_works_eyebrow: How it works
+      how_it_works_title: From detection to belt stop
+      how_it_works:
+        - title: Camera watches the belt
+          text: The industrial-grade camera continuously monitors the conveyor line,
+            feeding video to the embedded AI engine.
+        - title: AI classifies objects in real time
+          text: The deep-learning model, trained on mining-specific data, identifies
+            tramp metal and oversized objects as they enter the frame.
+        - title: Alarm fires in under a second
+          text: On confirmed detection, the configurable alarm and integration platform
+            triggers — including an instant belt stop.
+        - title: Downstream equipment is protected
+          text: Hazardous objects are caught before reaching critical downstream
+            equipment, preventing belt damage and unplanned downtime.
+      contact_eyebrow: Get in touch
+      contact_title: See ICS-FOD on your operation
+      contact_text: Talk to the team about fitting ICS-FOD to your conveyor lines.
+      contact_cta_label: Contact us
+      back_to_home_label: Back to homepage
 approach:
   eyebrow: Delivery method
   title: Practical steps that slot into your operation
@@ -161,6 +218,49 @@ approach:
       summary: Compare performance, document outcomes, and transfer knowledge.
       description: Compare before/after KPIs, lock in procedures, and transfer
         knowledge so crews own the improvement.
+results:
+  eyebrow: Proof of work
+  title: Results and what clients say
+  text: Measurable outcomes and direct feedback from the operations we've worked with.
+  case_studies_title: Measurable results from the field
+  case_studies_text: Before/after outcomes from real engagements — placeholders below,
+    pending real project facts.
+  case_studies:
+    - category: "[Project type, e.g. Belt reliability upgrade]"
+      client: "[Client name or \"A Mongolian copper concentrator\"]"
+      description: "[1-2 sentence description of the problem and what ICS did about it]"
+      stat_1_value: "[X%]"
+      stat_1_label: "[metric, e.g. downtime reduced]"
+      stat_2_value: "[Y weeks]"
+      stat_2_label: "[delivery timeframe]"
+    - category: "[Project type]"
+      client: "[Client name]"
+      description: "[Description]"
+      stat_1_value: "[X%]"
+      stat_1_label: "[metric]"
+      stat_2_value: "[Y]"
+      stat_2_label: "[metric]"
+    - category: "[Project type]"
+      client: "[Client name]"
+      description: "[Description]"
+      stat_1_value: "[X%]"
+      stat_1_label: "[metric]"
+      stat_2_value: "[Y]"
+      stat_2_label: "[metric]"
+  testimonials_title: What clients say
+  testimonials_text: Direct quotes from the people we've worked with — placeholders below,
+    pending real testimonials with permission to publish.
+  testimonials:
+    - quote: "[Placeholder quote — what changed after the engagement, in the client's own
+        words]"
+      name: "[Client name]"
+      role: "[Title, Company]"
+    - quote: "[Placeholder quote]"
+      name: "[Client name]"
+      role: "[Title, Company]"
+    - quote: "[Placeholder quote]"
+      name: "[Client name]"
+      role: "[Title, Company]"
 team:
   eyebrow: Our team
   title: Automation, electrical, AI and data specialists with 16+ years of proven
@@ -221,6 +321,18 @@ contact:
     - name: Ider Gerelsuren
       email: ider@icsmongolia.com
       phone: +976 9448 0803
+  form:
+    title: Send a message
+    name_label: Name
+    name_placeholder: Your name
+    email_label: Email
+    email_placeholder: you@company.com
+    company_label: Company
+    company_placeholder: Mine / operation name
+    message_label: Message
+    message_placeholder: What are you looking to solve?
+    submit_label: Send message
+    note: Opens your email app with this pre-filled, addressed to our team.
 footer:
   copyright: © 2026 Industrial Control Solutions LLC. All rights reserved.
   back_to_top: Back to top

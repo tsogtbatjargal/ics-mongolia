@@ -4,6 +4,78 @@ Append-only. Newest entry at the top. Each entry: date, what got done, what's ne
 
 ---
 
+## 2026-08-20 — Phase 3/4 prototypes productionized (CMS-wired, not yet committed)
+
+- After reviewing the four `/preview/` drafts live, user asked to wire all four into the real
+  site properly — CMS-editable, not static drafts — rather than leave them in `/preview/`.
+  Removed `/preview/` (superseded) and built each one for real:
+  - **New `#results` homepage section** (between Approach and Team, new "Results" nav item):
+    case-study cards + testimonial cards, still placeholder content but now driven by
+    `results.case_studies` / `results.testimonials` in `content/en.yml` / `content/mn.yml`,
+    editable via Pages CMS (`results_section` component added to `.pages.yml`).
+  - **Dedicated ICS-FOD product page** at `/en/products/ics-fod/` + `/mn/products/ics-fod/` —
+    new `buildProductPage()` function in `build.js`, driven by
+    `ai_solutions.product.product_page` (hero copy, spec table, how-it-works steps, contact
+    CTA — all CMS-editable via a new `product_page` component). Linked from a "Full
+    specifications" button added to the homepage AI Solutions section. Added to `sitemap.xml`
+    with hreflang alternates; not `noindex` since it's real content now.
+  - **Contact form** — added beside "Direct contacts", CMS-editable labels/placeholders
+    (`contact.form`). Before wiring this in, flagged a real risk to the user: the `/preview/`
+    demo showed a fake "message sent" state with no backend, which on the live site would
+    silently lose real leads. User chose the `mailto:` fallback over a real POST backend
+    (which would've needed a new Worker script + email-sending method not yet set up) —
+    ships today, same delivery reliability as the existing mailto links. Implemented as a
+    guarded `.contact-form` submit handler in `script.js` that builds a `mailto:` link from
+    the field values.
+  - MN copy for all of the above is a machine translation, same caliber as existing MN
+    content — queued behind the same native-speaker pass as the rest of Phase 3.
+  - Extended `build.js`'s existing selector-based sync pattern rather than introducing a new
+    templating approach, so the CMS/YAML/build.js contract described in the repo's `CLAUDE.md`
+    still holds for every new field.
+- Verified: `npm run build` clean (4 files: `en/index.html`, `mn/index.html`, both product
+  pages), local-asset-reference checker extended to cover the two new product-page files
+  (clean), `node --check script.js` OK, JSON-LD valid on all 4 pages, local HTTP smoke test
+  (`/`, `/en/`, `/mn/`, both product pages, `robots.txt`, `sitemap.xml`, product image) all
+  200.
+- **Not yet committed or pushed** — this is a substantial change (new pages, new CMS schema,
+  new nav item, new contact-form behavior) touching the live site; needs the user's explicit
+  go-ahead before `git commit`/`push` per the standing ground rule.
+- **Next:** get user confirmation to commit + push. After that, Phase 3 content
+  (case-study facts, testimonial quotes) and the Phase 3 MN native-review pass are the
+  remaining open items; Phase 4's only remaining item is the blog/news scope decision.
+
+## 2026-08-20 — Phase 3/4 prototypes pushed to /preview/ for live review
+
+- Built four draft prototypes for Phase 3/4 candidates, at the user's request, to look at
+  before deciding what to build for real: a dedicated ICS-FOD product page (real specs,
+  restructured into a spec table + "how it works" steps), a contact form UI (client-side demo
+  only — no backend wired, that decision is still open), a testimonials section layout, and a
+  case-study section layout. The latter two use only bracketed placeholder text
+  (`[Client name]`, `[X%]`, etc.) — no fabricated names, quotes, or metrics, per the
+  never-fabricate-facts rule in `HANDOFF.md`.
+- Originally built inside `ics-mongolia-improvements/prototypes/` for a local-only look, but
+  that folder is `.assetsignore`d — invisible even after a deploy. User asked to see them on
+  the actual production site, so moved all four into a new **`/preview/` folder at the repo
+  root** (not assetsignored), fixed relative asset paths accordingly, added
+  `<meta name="robots" content="noindex, nofollow">` to each page, and added
+  `Disallow: /preview/` to `robots.txt` so they stay unindexed and unlinked while still being
+  publicly reachable by direct URL. Ran `npm run build` (no-op, content unchanged), the
+  local-asset-reference checker (extended to also cover the new `/preview/` files — clean),
+  and a local HTTP smoke test (all four + `robots.txt` returned 200).
+- Committed (`41a5ec0`, plus an earlier `6d7316a` for the HANDOFF.md/PLAN.md/LOG.md updates
+  from the Phase 2 session) and pushed to `origin/main` with explicit user confirmation. No
+  push conflicts. Live at:
+  - `https://icsmongolia.com/preview/ics-fod-product-page.html`
+  - `https://icsmongolia.com/preview/contact-form.html`
+  - `https://icsmongolia.com/preview/testimonials-section.html`
+  - `https://icsmongolia.com/preview/case-study-section.html`
+- **These are temporary and should be deleted once the user is done reviewing** — draft
+  content shouldn't linger indefinitely on the live domain even if unlinked/noindexed. Flag
+  this to the user in a future session if it's still sitting there.
+- **Next:** get the user's reaction to each of the four (keep/change/drop), and ask again
+  whether they have real testimonial quotes or case-study facts to replace the placeholders
+  with — those two sections can't move forward without real input.
+
 ## 2026-08-20 — Phase 2 (Analytics) done via Cloudflare auto-inject
 
 - User confirmed Cloudflare Web Analytics as the provider and enabled it directly in Badraa's

@@ -36,6 +36,33 @@ if (sections.length && 'IntersectionObserver' in window) {
   sections.forEach((section) => observer.observe(section));
 }
 
+const contactForms = document.querySelectorAll('.contact-form');
+
+contactForms.forEach((form) => {
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const recipients = form.dataset.recipients || '';
+    const data = new FormData(form);
+    const name = (data.get('name') || '').toString();
+    const email = (data.get('email') || '').toString();
+    const company = (data.get('company') || '').toString();
+    const message = (data.get('message') || '').toString();
+
+    const subject = `Website inquiry from ${name || 'website visitor'}`;
+    const bodyLines = [
+      `Name: ${name}`,
+      `Email: ${email}`,
+      company ? `Company: ${company}` : null,
+      '',
+      message,
+    ].filter((line) => line !== null);
+
+    const mailto = `mailto:${recipients}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
+    window.location.href = mailto;
+  });
+});
+
 const approachButtons = document.querySelectorAll('.approach-step');
 const approachDescription = document.getElementById('approach-description');
 
