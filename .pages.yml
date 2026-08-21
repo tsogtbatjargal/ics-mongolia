@@ -221,6 +221,13 @@ components:
   results_section:
     type: object
     fields:
+      - name: enabled
+        label: Show this section on the live site
+        description: Uncheck to hide "Results and what clients say" (and its nav link)
+          from both languages without deleting the content below. Re-check and publish
+          to bring it back.
+        type: boolean
+        default: true
       - name: eyebrow
         label: Eyebrow
         type: string

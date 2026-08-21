@@ -219,6 +219,7 @@ approach:
       description: Compare before/after KPIs, lock in procedures, and transfer
         knowledge so crews own the improvement.
 results:
+  enabled: false
   eyebrow: Proof of work
   title: Results and what clients say
   text: Measurable outcomes and direct feedback from the operations we've worked with.

@@ -4,6 +4,40 @@ Append-only. Newest entry at the top. Each entry: date, what got done, what's ne
 
 ---
 
+## 2026-08-21 — Results/"Proof of work" section hidden (temporary), NOT YET committed
+
+- User's reasoning: the company just started, `#results` is still 100% bracketed placeholder
+  copy (`[Client name]`, `[X%]`, etc. — see Phase 3 in `PLAN.md`), and it reads as fake/dishonest
+  to visitors right now. Wants it hidden until real case studies/testimonials exist, with an
+  easy, safe way to bring it back later — not a deletion.
+- Implementation is a reversible **content flag**, not a code/structural removal, so it fits
+  the CMS-driven build without fighting `build.js`:
+  - Added `results.enabled: false` as the first key under `results:` in both
+    `content/en.yml` and `content/mn.yml`.
+  - `build.js`: in the `results` block, added logic that sets the native HTML `hidden`
+    attribute on `<section id="results">` and on the `<li>` wrapping the `href="#results"`
+    nav link whenever `rs.enabled === false`. `hidden` is used (not a CSS class) because
+    browsers strip it from layout *and* the accessibility tree for free, no `styles.css`
+    change needed, and `script.js`'s `IntersectionObserver` scroll-spy and nav-link
+    `querySelectorAll` calls already tolerate a hidden section/link with no errors (checked
+    the relevant loops in `script.js`).
+  - `.pages.yml`: added an `enabled` boolean field (`type: boolean`, `default: true`) to the
+    `results_section` component, with a plain-language label/description, so this can be
+    toggled from the Pages CMS UI directly — no YAML hand-editing required going forward.
+  - **To bring it back later:** flip `results.enabled` to `true` (or check the box in the
+    CMS) in *both* `content/en.yml` and `content/mn.yml`, run `npm run build`, verify, commit,
+    push. One flag, no content lost — all the existing placeholder case studies/testimonials
+    are still sitting in the YAML untouched, ready for real facts whenever those land (per
+    Phase 3 in `PLAN.md`).
+- Verified: `npm run build` clean (all 4 generated pages), `node --check script.js` OK,
+  local-asset-reference checker clean, confirmed via local `python3 -m http.server 4173` that
+  `hidden=""` is present on both the nav `<li>` and the `<section>` in the served `en/`
+  and `mn/` HTML.
+- **Not committed or pushed yet** — holding per the standing rule (see `HANDOFF.md`) of
+  getting explicit confirmation before `git commit`/`git push` on this repo.
+- **Next:** get user's go-ahead to commit + push (this deploys automatically via the GitHub
+  Action). No other action needed — this is a complete, self-contained change.
+
 ## 2026-08-20 — Post-productionization cleanup (4 small fixes), committed + pushed
 
 - After the Phase 3/4 productionization push, user asked "anything to improve or leftover

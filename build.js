@@ -181,6 +181,18 @@ function buildPage(lang) {
   // ── Results (case studies + testimonials) ────────────────────────────────
   const rs = c.results;
   if (rs) {
+    // Section can be hidden site-wide (nav link + content) via content/*.yml's
+    // results.enabled: false, without deleting the underlying copy — flip it back
+    // to true and rebuild to bring it back.
+    const resultsSection = doc.querySelector('#results');
+    const resultsNavLink = doc.querySelector('.nav-links a[href="#results"]');
+    const resultsHidden = rs.enabled === false;
+    if (resultsSection) resultsSection.hidden = resultsHidden;
+    if (resultsNavLink) {
+      const navItem = resultsNavLink.closest('li');
+      if (navItem) navItem.hidden = resultsHidden;
+    }
+
     setText(doc.querySelector('#results .eyebrow'), rs.eyebrow);
     setText(doc.querySelector('#results h2'), rs.title);
     setText(doc.querySelector('#results .section-header p:not(.eyebrow)'), rs.text);
