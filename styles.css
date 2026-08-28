@@ -37,6 +37,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   background: var(--bg);
@@ -44,6 +48,11 @@ body {
   line-height: 1.7;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
+}
+
+/* Keep anchor targets clear of the pinned header instead of landing under it. */
+[id] {
+  scroll-margin-top: 5rem;
 }
 
 img {
@@ -89,7 +98,7 @@ a {
 /* ── Hero ──────────────────────────────────────────────────────────────── */
 
 .hero {
-  padding: 1rem clamp(1.25rem, 4vw, 4rem) 3.5rem;
+  padding: 2.75rem clamp(1.25rem, 4vw, 4rem) 3.5rem;
   background: linear-gradient(170deg, #ffffff 0%, var(--tint) 55%, var(--bg) 100%);
   border-bottom: 1px solid var(--border);
   position: relative;
@@ -105,22 +114,29 @@ a {
   pointer-events: none;
 }
 
-.nav {
+/* Pinned full-width bar. This must be a sibling of .hero, not a child: .hero
+   sets overflow:hidden, and any non-visible overflow on an ancestor makes that
+   ancestor the sticky scroll container, which silently disables sticky. */
+.nav-shell {
   position: sticky;
-  top: 0.75rem;
-  z-index: 20;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 3px rgba(14, 42, 71, 0.06);
+  padding: 0 clamp(1.25rem, 4vw, 4rem);
+}
+
+.nav {
+  position: relative; /* anchors the collapsed dropdown */
   max-width: 1440px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(10px);
-  border: 1px solid var(--border);
-  padding: 0.6rem 0.9rem;
-  border-radius: 14px;
-  box-shadow: var(--shadow);
+  padding: 0.55rem 0;
 }
 
 .logo {
@@ -1483,14 +1499,9 @@ textarea {
 /* ── Responsive ────────────────────────────────────────────────────────── */
 
 @media (max-width: 1180px) {
-  .nav {
-    position: relative;
-    top: 0;
-  }
-
   .nav-links {
     position: absolute;
-    top: 68px;
+    top: calc(100% + 0.4rem);
     right: 0;
     flex-direction: column;
     align-items: stretch;
@@ -1547,6 +1558,10 @@ textarea {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   *,
   *::before,
   *::after {
