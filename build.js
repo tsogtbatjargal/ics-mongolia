@@ -45,6 +45,11 @@ const COST_ICON =
 
 // All inline icons carry class="icon" so one CSS rule owns stroke/fill; the
 // surrounding context only has to set a size.
+// The header <ul> also carries the language switcher and the CTA button, which
+// are driven by their own content keys — never by navigation[].
+const NAV_LINK_SELECTOR =
+  '.nav-links > li:not(.language-switch):not(.nav-cta-item) a';
+
 function svg(paths) {
   return `<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">${paths}</svg>`;
 }
@@ -143,13 +148,19 @@ function buildPage(lang) {
   if (logoImg) logoImg.setAttribute('alt', c.company.short_name);
 
   // Navigation
-  const navLinks = doc.querySelectorAll('.nav-links > li:not(.language-switch) a');
+  const navLinks = doc.querySelectorAll(NAV_LINK_SELECTOR);
   c.navigation.forEach((item, i) => {
     if (navLinks[i]) {
       navLinks[i].textContent = item.label;
       navLinks[i].setAttribute('href', item.url);
     }
   });
+
+  const navCta = doc.querySelector('.nav-cta');
+  if (navCta && c.nav_cta) {
+    navCta.textContent = c.nav_cta.label;
+    navCta.setAttribute('href', c.nav_cta.url);
+  }
 
   // ── Hero ──────────────────────────────────────────────────────────────────
   const h = c.hero;
@@ -467,10 +478,13 @@ function buildProductPage(lang) {
 
   // Nav labels only — hrefs stay as cross-page links (e.g. "/en/#overview"),
   // not the homepage's same-page anchors, so they aren't overwritten here.
-  const navLinks = doc.querySelectorAll('.nav-links > li:not(.language-switch) a');
+  const navLinks = doc.querySelectorAll(NAV_LINK_SELECTOR);
   c.navigation.forEach((item, i) => {
     if (navLinks[i]) navLinks[i].textContent = item.label;
   });
+
+  const navCta = doc.querySelector('.nav-cta');
+  if (navCta && c.nav_cta) navCta.textContent = c.nav_cta.label;
 
   if (pp.meta_title) {
     doc.title = pp.meta_title;
@@ -594,10 +608,13 @@ function buildProductsIndex(lang) {
   if (logoImg) logoImg.setAttribute('alt', c.company.short_name);
 
   // Nav labels only — hrefs stay as cross-page links back to the homepage.
-  const navLinks = doc.querySelectorAll('.nav-links > li:not(.language-switch) a');
+  const navLinks = doc.querySelectorAll(NAV_LINK_SELECTOR);
   c.navigation.forEach((item, i) => {
     if (navLinks[i]) navLinks[i].textContent = item.label;
   });
+
+  const navCta = doc.querySelector('.nav-cta');
+  if (navCta && c.nav_cta) navCta.textContent = c.nav_cta.label;
 
   if (ip.meta_title) {
     doc.title = ip.meta_title;

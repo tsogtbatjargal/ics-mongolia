@@ -865,6 +865,9 @@ content:
               collapsible:
                 collapsed: true
                 summary: "{label}"
+          - name: nav_cta
+            label: Header CTA button
+            component: cta
           - name: hero
             label: Hero
             component: hero
@@ -921,6 +924,9 @@ content:
               collapsible:
                 collapsed: true
                 summary: "{label}"
+          - name: nav_cta
+            label: Header CTA button
+            component: cta
           - name: hero
             label: Hero
             component: hero

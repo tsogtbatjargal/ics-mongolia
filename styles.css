@@ -153,10 +153,12 @@ a {
 .nav-links a {
   text-decoration: none;
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 0.76rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
   color: var(--navy);
-  padding: 0.45rem 0.85rem;
-  border-radius: 8px;
+  padding: 0.5rem 0.7rem;
+  border-radius: 6px;
   transition: background 0.2s, color 0.2s;
   white-space: nowrap;
 }
@@ -167,31 +169,55 @@ a {
   background: var(--tint);
 }
 
+/* Utility group (language + CTA), separated from the link list like Bruker's. */
 .language-switch {
   display: inline-flex;
   align-items: center;
-  gap: 0.15rem;
-  border: 1px solid var(--border);
+  gap: 0.1rem;
   border-radius: 8px;
-  padding: 0.15rem;
-  background: var(--surface-alt);
-  margin-left: 0.35rem;
+  padding: 0.15rem 0.15rem 0.15rem 1.5rem;
+  margin-left: 0.6rem;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23516178' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20'/%3E%3Cpath d='M2 12h20'/%3E%3C/svg%3E")
+    no-repeat left 0.15rem center / 16px 16px;
 }
 
 .language-switch a {
-  padding: 0.2rem 0.5rem;
-  font-size: 0.82rem;
+  padding: 0.2rem 0.4rem;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
   color: var(--muted);
+  border-radius: 5px;
 }
 
 .language-switch a.active-lang {
-  color: #fff;
-  background: var(--primary);
+  color: var(--primary);
+  background: var(--tint);
 }
 
-.language-switch a.active-lang:hover {
+.nav-cta-item {
+  margin-left: 0.6rem;
+  padding-left: 0.75rem;
+  border-left: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+}
+
+.nav-links .nav-cta {
+  padding: 0.55rem 1.1rem;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #fff;
+  border-radius: 999px;
+  box-shadow: none;
+}
+
+.nav-links .nav-cta:hover {
   color: #fff;
   background: var(--primary-dark);
+  transform: none;
 }
 
 .nav-toggle {
@@ -210,6 +236,21 @@ a {
   height: 2px;
   background: var(--navy);
   border-radius: 2px;
+}
+
+/* Just above the collapse breakpoint the bar is tightest — Mongolian's longer
+   words (БҮТЭЭГДЭХҮҮН) set the width here, so buy back some room. */
+@media (min-width: 1181px) and (max-width: 1340px) {
+  .nav-links a {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    letter-spacing: 0.05em;
+  }
+
+  .nav-links .nav-cta {
+    padding-left: 0.9rem;
+    padding-right: 0.9rem;
+  }
 }
 
 .hero-shell {
@@ -1441,7 +1482,7 @@ textarea {
 
 /* ── Responsive ────────────────────────────────────────────────────────── */
 
-@media (max-width: 1080px) {
+@media (max-width: 1180px) {
   .nav {
     position: relative;
     top: 0;
@@ -1460,16 +1501,29 @@ textarea {
     box-shadow: var(--shadow-lg);
     display: none;
     z-index: 5;
-    min-width: 200px;
+    min-width: 232px;
   }
 
   .nav-links.open {
     display: flex;
   }
 
+  /* The utility group stacks with the links instead of sitting beside them. */
   .language-switch {
-    margin: 0.35rem 0 0;
+    margin: 0.5rem 0 0;
     align-self: flex-start;
+  }
+
+  .nav-cta-item {
+    margin: 0.5rem 0 0;
+    padding: 0.75rem 0 0;
+    border-left: none;
+    border-top: 1px solid var(--border);
+  }
+
+  .nav-links .nav-cta {
+    width: 100%;
+    text-align: center;
   }
 
   .nav-toggle {

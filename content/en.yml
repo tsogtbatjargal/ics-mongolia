@@ -24,8 +24,11 @@ navigation:
     url: "#results"
   - label: Team
     url: "#team"
-  - label: Contact
-    url: "#contact"
+# Standalone button at the right of the header. Kept out of `navigation:` so it
+# always renders as the CTA, whatever gets added to the nav list.
+nav_cta:
+  label: Contact us
+  url: "#contact"
 hero:
   eyebrow: Industrial Control Solutions LLC
   title: Driving Industrial Performance Through AI, Automation and Innovation
