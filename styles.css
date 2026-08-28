@@ -73,6 +73,19 @@ a {
   border-radius: 4px;
 }
 
+/* Every inline icon emitted by build.js. Without fill:none these stroke-only
+   Lucide paths render as solid black blobs. Size is set per context. */
+.icon {
+  width: 1em;
+  height: 1em;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 /* ── Hero ──────────────────────────────────────────────────────────────── */
 
 .hero {
@@ -96,6 +109,8 @@ a {
   position: sticky;
   top: 0.75rem;
   z-index: 20;
+  max-width: 1440px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -203,7 +218,8 @@ a {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2.5rem;
-  margin-top: 3rem;
+  max-width: 1440px;
+  margin: 3rem auto 0;
   align-items: center;
 }
 
@@ -353,7 +369,8 @@ a {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
   padding: 0;
-  margin: 2.5rem 0 0;
+  max-width: 1440px;
+  margin: 2.5rem auto 0;
   position: relative;
   z-index: 1;
 }
@@ -417,7 +434,11 @@ a {
 
 /* ── Layout / sections ─────────────────────────────────────────────────── */
 
+/* Cap the content column so sections don't stretch into unreadable bands on
+   large monitors — the hero blocks below use the same measure. */
 main {
+  max-width: 1440px;
+  margin: 0 auto;
   padding: 3.5rem clamp(1.25rem, 5vw, 5rem) 4rem;
   display: flex;
   flex-direction: column;
@@ -588,14 +609,9 @@ main {
   color: var(--primary);
 }
 
-.problem-icon svg {
+.problem-icon .icon {
   width: 22px;
   height: 22px;
-  stroke: currentColor;
-  fill: none;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
 }
 
 .problem-card h3 {
@@ -625,15 +641,9 @@ main {
   text-align: center;
 }
 
-.problem-cost svg {
+.problem-cost .icon {
   width: 16px;
   height: 16px;
-  flex: 0 0 auto;
-  stroke: currentColor;
-  fill: none;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
 }
 
 /* ── Product cards ─────────────────────────────────────────────────────── */
@@ -762,40 +772,49 @@ main {
 .partner-grid {
   margin-top: 2rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
   gap: 1.25rem;
 }
 
+/* Logo panel above the copy on phones, beside it from tablet up — keeps a
+   single partner card from stretching into a shapeless band on wide screens. */
 .partner-card {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 14px;
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  padding: 1.75rem;
+  display: grid;
+  gap: 1.5rem;
+  align-items: center;
   box-shadow: var(--shadow-sm);
 }
 
-.partner-logo-slot {
-  height: 68px;
-  border-radius: 10px;
-  background: var(--surface-alt);
-  border: 1px dashed var(--border-strong);
-  display: grid;
-  place-items: center;
-  padding: 0.75rem 1rem;
+@media (min-width: 820px) {
+  .partner-card {
+    grid-template-columns: 210px minmax(0, 1fr);
+    gap: 2.25rem;
+  }
 }
 
-/* Once a real logo file is dropped in, the slot loses its placeholder frame. */
-.partner-logo-slot:has(img) {
-  border-style: solid;
-  border-color: var(--border);
-  background: var(--surface);
+.partner-logo-slot {
+  min-height: 118px;
+  border-radius: 10px;
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  display: grid;
+  place-items: center;
+  padding: 1.1rem 1.35rem;
+}
+
+/* Dashed placeholder frame only while no logo file has been set. */
+.partner-logo-slot:not(:has(img)) {
+  border-style: dashed;
+  border-color: var(--border-strong);
 }
 
 .partner-logo-slot img {
-  max-height: 100%;
+  max-height: 86px;
+  max-width: 100%;
   width: auto;
   object-fit: contain;
   border-radius: 0;
@@ -808,11 +827,17 @@ main {
   color: var(--navy);
 }
 
+.partner-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.7rem;
+}
+
 .partner-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
-  align-self: flex-start;
+  gap: 0.4rem;
   background: var(--tint);
   border: 1px solid var(--tint-strong);
   color: var(--primary-dark);
@@ -820,23 +845,30 @@ main {
   padding: 0.3rem 0.85rem;
   font-weight: 700;
   font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+.partner-badge .icon {
+  width: 14px;
+  height: 14px;
+  stroke-width: 3;
 }
 
 .partner-card h3 {
   margin: 0;
-  font-size: 1.15rem;
+  font-size: 1.25rem;
 }
 
 .partner-card p {
   margin: 0;
   font-size: 0.96rem;
+  max-width: 72ch;
 }
 
 .partner-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: auto;
+  gap: 1.25rem;
   padding-top: 0.35rem;
 }
 

@@ -379,9 +379,8 @@ partners:
   items:
     - name: Bruker
       badge: Монгол дахь албан ёсны борлуулагч
-      # Лицензтэй лого файлыг /images дотор байрлуулж, `logo:` талбарт замыг нь
-      # бичих (жишээ нь /images/bruker-logo.png) — ингэснээр доорх текст лого солигдоно.
-      logo: ""
+      # `logo:` талбарыг хоосон болговол доорх `wordmark:` текст лого харагдана.
+      logo: /images/bruker-logo.png
       logo_alt: Bruker
       wordmark: BRUKER
       text: Индастриал Контрол Солюшнс ХХК нь Bruker компанийн Монгол дахь албан ёсны

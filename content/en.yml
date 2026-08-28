@@ -370,9 +370,8 @@ partners:
   items:
     - name: Bruker
       badge: Official distributor — Mongolia
-      # Drop a licensed logo file into /images and set `logo:` to its path
-      # (e.g. /images/bruker-logo.png) to replace the text wordmark below.
-      logo: ""
+      # Clearing `logo:` falls back to the `wordmark:` text below.
+      logo: /images/bruker-logo.png
       logo_alt: Bruker
       wordmark: BRUKER
       text: Industrial Control Solutions LLC is the official distributor of Bruker in

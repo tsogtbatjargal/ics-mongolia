@@ -43,8 +43,10 @@ const PROBLEM_ICONS = {
 const COST_ICON =
   '<circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/>';
 
+// All inline icons carry class="icon" so one CSS rule owns stroke/fill; the
+// surrounding context only has to set a size.
 function svg(paths) {
-  return `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">${paths}</svg>`;
+  return `<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">${paths}</svg>`;
 }
 
 // Renders the six "problems solved" cards. Shared by the homepage and the
@@ -85,13 +87,15 @@ function renderPartners(items) {
           <article class="partner-card">
             <div class="partner-logo-slot">${item.logo
               ? `<img src="${esc(imgSrc(item.logo))}" alt="${esc(item.logo_alt || item.name)}">`
-              : `<span class="partner-wordmark">${esc(item.wordmark || item.name)}</span>`}</div>${item.badge ? `
-            <span class="partner-badge">${svg('<path d="M20 6 9 17l-5-5"/>')}${esc(item.badge)}</span>` : ''}
-            <h3>${esc(item.name)}</h3>
-            <p>${esc(item.text)}</p>${Array.isArray(item.links) && item.links.length ? `
-            <div class="partner-links">
-              ${item.links.map(l => `<a href="${esc(l.url)}"${/^https?:/.test(l.url) ? ' target="_blank" rel="noopener"' : ''}>${esc(l.label)}</a>`).join('\n              ')}
-            </div>` : ''}
+              : `<span class="partner-wordmark">${esc(item.wordmark || item.name)}</span>`}</div>
+            <div class="partner-body">${item.badge ? `
+              <span class="partner-badge">${svg('<path d="M20 6 9 17l-5-5"/>')}<span>${esc(item.badge)}</span></span>` : ''}
+              <h3>${esc(item.name)}</h3>
+              <p>${esc(item.text)}</p>${Array.isArray(item.links) && item.links.length ? `
+              <div class="partner-links">
+                ${item.links.map(l => `<a href="${esc(l.url)}"${/^https?:/.test(l.url) ? ' target="_blank" rel="noopener"' : ''}>${esc(l.label)}</a>`).join('\n                ')}
+              </div>` : ''}
+            </div>
           </article>`).join('');
 }
 
