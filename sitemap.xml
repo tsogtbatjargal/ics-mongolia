@@ -20,6 +20,18 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://icsmongolia.com/"/>
   </url>
   <url>
+    <loc>https://icsmongolia.com/en/products/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://icsmongolia.com/en/products/"/>
+    <xhtml:link rel="alternate" hreflang="mn" href="https://icsmongolia.com/mn/products/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://icsmongolia.com/en/products/"/>
+  </url>
+  <url>
+    <loc>https://icsmongolia.com/mn/products/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://icsmongolia.com/en/products/"/>
+    <xhtml:link rel="alternate" hreflang="mn" href="https://icsmongolia.com/mn/products/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://icsmongolia.com/en/products/"/>
+  </url>
+  <url>
     <loc>https://icsmongolia.com/en/products/ics-fod/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://icsmongolia.com/en/products/ics-fod/"/>
     <xhtml:link rel="alternate" hreflang="mn" href="https://icsmongolia.com/mn/products/ics-fod/"/>

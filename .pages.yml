@@ -6,6 +6,13 @@ media:
     categories: [image]
     extensions: [jpg, jpeg, png, webp, gif, svg]
     rename: safe
+  - name: videos
+    label: Videos
+    input: images
+    output: /images
+    categories: [document]
+    extensions: [mp4, webm]
+    rename: safe
 
 components:
   link:
@@ -63,6 +70,219 @@ components:
         label: Tags
         type: string
         list: true
+
+  problem_item:
+    type: object
+    fields:
+      - name: icon
+        label: Icon
+        type: select
+        options:
+          values: [alert, trend, droplet, wrench, swap, boxes]
+        default: alert
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: text
+        label: Text
+        type: text
+        required: true
+      - name: cost
+        label: Cost / impact strip
+        description: Short line shown in the tinted strip at the bottom of the card.
+        type: string
+
+  problems_section:
+    type: object
+    fields:
+      - name: eyebrow
+        label: Eyebrow
+        type: string
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: text
+        label: Intro text
+        type: text
+      - name: items
+        label: Problems
+        component: problem_item
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+
+  product_item:
+    type: object
+    fields:
+      - name: index
+        label: Number (01, 02, …)
+        type: string
+        required: true
+      - name: name
+        label: Product name
+        type: string
+        required: true
+      - name: subtitle
+        label: Subtitle
+        type: string
+        required: true
+      - name: points
+        label: Bullet points
+        type: text
+        list: true
+      - name: url
+        label: Link URL
+        type: string
+      - name: link_label
+        label: Link label
+        type: string
+
+  products_index_page:
+    type: object
+    fields:
+      - name: meta_title
+        label: Page <title>
+        type: string
+      - name: meta_description
+        label: Meta description
+        type: text
+      - name: hero_eyebrow
+        label: Hero eyebrow
+        type: string
+      - name: hero_title
+        label: Hero title
+        type: string
+      - name: hero_lede
+        label: Hero lead text
+        type: text
+      - name: primary_cta
+        label: Primary CTA
+        component: cta
+      - name: secondary_cta
+        label: Secondary CTA
+        component: cta
+      - name: catalogue_eyebrow
+        label: Catalogue eyebrow
+        type: string
+      - name: catalogue_title
+        label: Catalogue title
+        type: string
+      - name: catalogue_text
+        label: Catalogue intro text
+        type: text
+      - name: problems_eyebrow
+        label: Problems eyebrow
+        type: string
+      - name: problems_title
+        label: Problems title
+        type: string
+      - name: problems_text
+        label: Problems intro text
+        type: text
+      - name: contact_eyebrow
+        label: Contact CTA eyebrow
+        type: string
+      - name: contact_title
+        label: Contact CTA title
+        type: string
+      - name: contact_text
+        label: Contact CTA text
+        type: text
+      - name: contact_cta_label
+        label: Contact CTA button label
+        type: string
+      - name: back_to_home_label
+        label: "Back to homepage link label"
+        type: string
+
+  products_section:
+    type: object
+    fields:
+      - name: eyebrow
+        label: Eyebrow
+        type: string
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: text
+        label: Intro text
+        type: text
+      - name: cta_label
+        label: "\"Explore all products\" button label"
+        type: string
+      - name: cta_url
+        label: "\"Explore all products\" button URL"
+        type: string
+      - name: index_page
+        label: Products index page (/products/)
+        component: products_index_page
+      - name: items
+        label: Products
+        component: product_item
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{index} {name}"
+
+  partner_item:
+    type: object
+    fields:
+      - name: name
+        label: Partner name
+        type: string
+        required: true
+      - name: badge
+        label: Badge (e.g. "Official distributor — Mongolia")
+        type: string
+      - name: logo
+        label: Logo
+        description: Leave empty to show the text wordmark instead. Only upload a logo
+          you are licensed to display.
+        type: image
+        options:
+          media: images
+      - name: logo_alt
+        label: Logo alt text
+        type: string
+      - name: wordmark
+        label: Text wordmark (fallback when no logo is set)
+        type: string
+      - name: text
+        label: Description
+        type: text
+        required: true
+      - name: links
+        label: Links
+        component: link
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{label}"
+
+  partners_section:
+    type: object
+    fields:
+      - name: eyebrow
+        label: Eyebrow
+        type: string
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: text
+        label: Intro text
+        type: text
+      - name: items
+        label: Partners
+        component: partner_item
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{name}"
 
   ai_feature:
     type: object
@@ -508,6 +728,20 @@ components:
           - name: image_alt
             label: Image alt text
             type: string
+          - name: video
+            label: Demo video (MP4)
+            description: Shown instead of the still image in the homepage AI section.
+            type: file
+            options:
+              media: videos
+          - name: video_poster
+            label: Video poster frame
+            type: image
+            options:
+              media: images
+          - name: video_caption
+            label: Video caption
+            type: string
           - name: description
             label: Description
             type: text
@@ -637,6 +871,12 @@ content:
           - name: overview
             label: Overview
             component: overview
+          - name: problems
+            label: Problems solved
+            component: problems_section
+          - name: products
+            label: Products
+            component: products_section
           - name: services
             label: Services
             component: services_section
@@ -646,6 +886,9 @@ content:
           - name: approach
             label: Approach
             component: approach
+          - name: partners
+            label: Partners & distribution
+            component: partners_section
           - name: results
             label: Results (case studies + testimonials)
             component: results_section
@@ -684,6 +927,12 @@ content:
           - name: overview
             label: Overview
             component: overview
+          - name: problems
+            label: Problems solved
+            component: problems_section
+          - name: products
+            label: Products
+            component: products_section
           - name: services
             label: Services
             component: services_section
@@ -693,6 +942,9 @@ content:
           - name: approach
             label: Approach
             component: approach
+          - name: partners
+            label: Partners & distribution
+            component: partners_section
           - name: results
             label: Results (case studies + testimonials)
             component: results_section

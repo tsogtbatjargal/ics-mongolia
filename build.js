@@ -23,6 +23,103 @@ function esc(str) {
     .replace(/"/g, '&quot;');
 }
 
+// Lucide icon paths (MIT, https://lucide.dev) — same family as brand-kit/icons.
+// Keyed by the `icon:` value on each problems item in content/*.yml.
+const PROBLEM_ICONS = {
+  alert:
+    '<path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/>',
+  trend:
+    '<polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/>',
+  droplet:
+    '<path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/>',
+  wrench:
+    '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>',
+  swap:
+    '<path d="M8 3 4 7l4 4"/><path d="M4 7h16"/><path d="m16 21 4-4-4-4"/><path d="M20 17H4"/>',
+  boxes:
+    '<path d="M2.97 12.92A2 2 0 0 0 2 14.63v3.24a2 2 0 0 0 .97 1.71l3 1.8a2 2 0 0 0 2.06 0L12 19v-5.5l-5-3-4.03 2.42Z"/><path d="m7 16.5-4.74-2.85"/><path d="m7 16.5 5-3"/><path d="M7 16.5v5.17"/><path d="M12 13.5V19l3.97 2.38a2 2 0 0 0 2.06 0l3-1.8a2 2 0 0 0 .97-1.71v-3.24a2 2 0 0 0-.97-1.71L17 10.5l-5 3Z"/><path d="m17 16.5-5-3"/><path d="m17 16.5 4.74-2.85"/><path d="M17 16.5v5.17"/><path d="M7.97 4.42A2 2 0 0 0 7 6.13v4.37l5 3 5-3V6.13a2 2 0 0 0-.97-1.71l-3-1.8a2 2 0 0 0-2.06 0l-3 1.8Z"/><path d="M12 8 7.26 5.15"/><path d="m12 8 4.74-2.85"/><path d="M12 13.5V8"/>',
+};
+
+const COST_ICON =
+  '<circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/>';
+
+function svg(paths) {
+  return `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">${paths}</svg>`;
+}
+
+// Renders the six "problems solved" cards. Shared by the homepage and the
+// products index page.
+function renderProblems(items) {
+  return items.map(item => `
+          <article class="problem-card">
+            <div class="problem-head">
+              <div class="problem-icon">${svg(PROBLEM_ICONS[item.icon] || PROBLEM_ICONS.alert)}</div>
+              <h3>${esc(item.title)}</h3>
+            </div>
+            <p>${esc(item.text)}</p>${item.cost ? `
+            <div class="problem-cost">${svg(COST_ICON)}<span>${esc(item.cost)}</span></div>` : ''}
+          </article>`).join('');
+}
+
+// Renders the six product cards. `linked` controls whether each card gets its
+// "read more" link — the products index page repeats the cards without them.
+function renderProducts(items, linked = true) {
+  return items.map(item => `
+          <article class="product-card" id="${esc(String(item.name).toLowerCase())}">
+            <div class="product-card-head">
+              <span class="product-index">${esc(item.index)}</span>
+              <h3 class="product-name">${esc(item.name)}</h3>
+            </div>
+            <div class="product-card-body">
+              <p class="product-subtitle">${esc(item.subtitle)}</p>
+              <ul class="product-points">
+                ${item.points.map(pt => `<li>${esc(pt)}</li>`).join('\n                ')}
+              </ul>${linked && item.url ? `
+              <a class="product-link" href="${esc(item.url)}">${esc(item.link_label || item.name)}</a>` : ''}
+            </div>
+          </article>`).join('');
+}
+
+function renderPartners(items) {
+  return items.map(item => `
+          <article class="partner-card">
+            <div class="partner-logo-slot">${item.logo
+              ? `<img src="${esc(imgSrc(item.logo))}" alt="${esc(item.logo_alt || item.name)}">`
+              : `<span class="partner-wordmark">${esc(item.wordmark || item.name)}</span>`}</div>${item.badge ? `
+            <span class="partner-badge">${svg('<path d="M20 6 9 17l-5-5"/>')}${esc(item.badge)}</span>` : ''}
+            <h3>${esc(item.name)}</h3>
+            <p>${esc(item.text)}</p>${Array.isArray(item.links) && item.links.length ? `
+            <div class="partner-links">
+              ${item.links.map(l => `<a href="${esc(l.url)}"${/^https?:/.test(l.url) ? ' target="_blank" rel="noopener"' : ''}>${esc(l.label)}</a>`).join('\n              ')}
+            </div>` : ''}
+          </article>`).join('');
+}
+
+// Swaps the still screenshot for the demo video when `video:` is set on the
+// product, keeping the screenshot as the poster frame.
+function renderProductMedia(p, srcFor = imgSrc) {
+  if (p.video) {
+    return `
+            <video
+              class="ai-product-video"
+              controls
+              muted
+              loop
+              playsinline
+              preload="none"
+              ${p.video_poster ? `poster="${esc(srcFor(p.video_poster))}"` : ''}
+            >
+              <source src="${esc(srcFor(p.video))}" type="video/mp4">
+            </video>${p.video_caption ? `
+            <figcaption>${esc(p.video_caption)}</figcaption>` : ''}`;
+  }
+  return `
+            <picture>
+              <source srcset="${esc(srcFor(String(p.image).replace(/\.(png|jpe?g)$/, '.webp')))}" type="image/webp">
+              <img class="ai-product-image" src="${esc(srcFor(p.image))}" alt="${esc(p.image_alt || '')}" loading="lazy">
+            </picture>`;
+}
+
 function setText(el, text) {
   if (el && text != null) el.textContent = String(text);
 }
@@ -92,6 +189,38 @@ function buildPage(lang) {
   setText(doc.querySelector('#overview h2'), ov.title);
   setText(doc.querySelector('#overview .section-header p:not(.eyebrow)'), ov.text);
 
+  // ── Problems solved ───────────────────────────────────────────────────────
+  const pr = c.problems;
+  if (pr) {
+    setText(doc.querySelector('#problems .eyebrow'), pr.eyebrow);
+    setText(doc.querySelector('#problems h2'), pr.title);
+    setText(doc.querySelector('#problems .section-header p:not(.eyebrow)'), pr.text);
+
+    const problemsGrid = doc.querySelector('.problems-grid');
+    if (problemsGrid && Array.isArray(pr.items)) {
+      problemsGrid.innerHTML = renderProblems(pr.items);
+    }
+  }
+
+  // ── Products ──────────────────────────────────────────────────────────────
+  const pd = c.products;
+  if (pd) {
+    setText(doc.querySelector('#products .eyebrow'), pd.eyebrow);
+    setText(doc.querySelector('#products h2'), pd.title);
+    setText(doc.querySelector('#products .section-header p:not(.eyebrow)'), pd.text);
+
+    const productsGrid = doc.querySelector('.products-grid');
+    if (productsGrid && Array.isArray(pd.items)) {
+      productsGrid.innerHTML = renderProducts(pd.items);
+    }
+
+    const productsCta = doc.querySelector('.products-cta');
+    if (productsCta && pd.cta_label) {
+      productsCta.textContent = pd.cta_label;
+      productsCta.setAttribute('href', pd.cta_url);
+    }
+  }
+
   // ── Services ──────────────────────────────────────────────────────────────
   const sv = c.services;
   setText(doc.querySelector('#services .eyebrow'), sv.eyebrow);
@@ -130,10 +259,9 @@ function buildPage(lang) {
     setText(doc.querySelector('.ai-product-tagline'), p.tagline);
     setText(doc.querySelector('.ai-product-description'), p.description);
 
-    const productImg = doc.querySelector('.ai-product-image');
-    if (productImg && p.image) {
-      productImg.setAttribute('src', imgSrc(p.image));
-      productImg.setAttribute('alt', p.image_alt || '');
+    const productMedia = doc.querySelector('.ai-product-media');
+    if (productMedia && (p.video || p.image)) {
+      productMedia.innerHTML = renderProductMedia(p);
     }
 
     const featGrid = doc.querySelector('.ai-features');
@@ -176,6 +304,19 @@ function buildPage(lang) {
 
   if (ap.steps[0]) {
     setText(doc.querySelector('#approach-description'), ap.steps[0].description);
+  }
+
+  // ── Partners & distribution ───────────────────────────────────────────────
+  const pt = c.partners;
+  if (pt) {
+    setText(doc.querySelector('#partners .eyebrow'), pt.eyebrow);
+    setText(doc.querySelector('#partners h2'), pt.title);
+    setText(doc.querySelector('#partners .section-header p:not(.eyebrow)'), pt.text);
+
+    const partnerGrid = doc.querySelector('.partner-grid');
+    if (partnerGrid && Array.isArray(pt.items)) {
+      partnerGrid.innerHTML = renderPartners(pt.items);
+    }
   }
 
   // ── Results (case studies + testimonials) ────────────────────────────────
@@ -429,7 +570,106 @@ function buildProductPage(lang) {
   console.log(`✓ ${lang}/products/ics-fod/index.html`);
 }
 
+// Products index page (en|mn)/products/index.html — repeats the problem cards and
+// the full product catalogue so each module has a linkable anchor of its own.
+function buildProductsIndex(lang) {
+  const c = yaml.load(
+    fs.readFileSync(path.join(__dirname, 'content', `${lang}.yml`), 'utf8')
+  );
+  const pd = c.products;
+  const ip = pd && pd.index_page;
+  if (!ip) return;
+
+  const htmlPath = path.join(__dirname, lang, 'products', 'index.html');
+  const dom = new JSDOM(fs.readFileSync(htmlPath, 'utf8'));
+  const doc = dom.window.document;
+
+  doc.documentElement.lang = c.language.code;
+
+  const logoImg = doc.querySelector('a.logo img');
+  if (logoImg) logoImg.setAttribute('alt', c.company.short_name);
+
+  // Nav labels only — hrefs stay as cross-page links back to the homepage.
+  const navLinks = doc.querySelectorAll('.nav-links > li:not(.language-switch) a');
+  c.navigation.forEach((item, i) => {
+    if (navLinks[i]) navLinks[i].textContent = item.label;
+  });
+
+  if (ip.meta_title) {
+    doc.title = ip.meta_title;
+    const ogTitle = doc.querySelector('meta[property="og:title"]');
+    if (ogTitle) ogTitle.setAttribute('content', ip.meta_title);
+    const twTitle = doc.querySelector('meta[name="twitter:title"]');
+    if (twTitle) twTitle.setAttribute('content', ip.meta_title);
+  }
+  if (ip.meta_description) {
+    for (const sel of [
+      'meta[name="description"]',
+      'meta[property="og:description"]',
+      'meta[name="twitter:description"]',
+    ]) {
+      const el = doc.querySelector(sel);
+      if (el) el.setAttribute('content', ip.meta_description);
+    }
+  }
+
+  // ── Hero ────────────────────────────────────────────────────────────────
+  setText(doc.querySelector('.hero-copy .eyebrow'), ip.hero_eyebrow);
+  setText(doc.querySelector('.hero-copy h1'), ip.hero_title);
+  setText(doc.querySelector('.hero-copy .lede'), ip.hero_lede);
+
+  const primaryBtn = doc.querySelector('.hero-cta .btn.primary');
+  if (primaryBtn && ip.primary_cta) {
+    primaryBtn.textContent = ip.primary_cta.label;
+    primaryBtn.setAttribute('href', ip.primary_cta.url);
+  }
+  const ghostBtn = doc.querySelector('.hero-cta .btn.ghost');
+  if (ghostBtn && ip.secondary_cta) {
+    ghostBtn.textContent = ip.secondary_cta.label;
+    ghostBtn.setAttribute('href', ip.secondary_cta.url);
+  }
+
+  // ── Catalogue ───────────────────────────────────────────────────────────
+  setText(doc.querySelector('#catalogue .eyebrow'), ip.catalogue_eyebrow);
+  setText(doc.querySelector('#catalogue h2'), ip.catalogue_title);
+  setText(doc.querySelector('#catalogue .section-header p:not(.eyebrow)'), ip.catalogue_text);
+
+  const productsGrid = doc.querySelector('.products-grid');
+  if (productsGrid && Array.isArray(pd.items)) {
+    productsGrid.innerHTML = renderProducts(pd.items);
+  }
+
+  // ── Problems ────────────────────────────────────────────────────────────
+  setText(doc.querySelector('#why .eyebrow'), ip.problems_eyebrow);
+  setText(doc.querySelector('#why h2'), ip.problems_title);
+  setText(doc.querySelector('#why .section-header p:not(.eyebrow)'), ip.problems_text);
+
+  const problemsGrid = doc.querySelector('.problems-grid');
+  if (problemsGrid && c.problems && Array.isArray(c.problems.items)) {
+    problemsGrid.innerHTML = renderProblems(c.problems.items);
+  }
+
+  // ── Contact CTA ─────────────────────────────────────────────────────────
+  setText(doc.querySelector('#page-contact .eyebrow'), ip.contact_eyebrow);
+  setText(doc.querySelector('#page-contact h2'), ip.contact_title);
+  setText(doc.querySelector('#page-contact .section-header p:not(.eyebrow)'), ip.contact_text);
+
+  const contactPrimaryBtn = doc.querySelector('#page-contact .btn.primary');
+  if (contactPrimaryBtn) contactPrimaryBtn.textContent = ip.contact_cta_label;
+  const backHomeBtn = doc.querySelector('#page-contact .btn.ghost');
+  if (backHomeBtn) backHomeBtn.textContent = ip.back_to_home_label;
+
+  setText(doc.querySelector('.footer p'), c.footer.copyright);
+  setText(doc.querySelector('.footer a'), c.footer.back_to_top);
+
+  fs.mkdirSync(path.dirname(htmlPath), { recursive: true });
+  fs.writeFileSync(htmlPath, dom.serialize());
+  console.log(`✓ ${lang}/products/index.html`);
+}
+
 buildPage('en');
 buildPage('mn');
+buildProductsIndex('en');
+buildProductsIndex('mn');
 buildProductPage('en');
 buildProductPage('mn');

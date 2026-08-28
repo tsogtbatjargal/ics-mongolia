@@ -10,12 +10,16 @@ company:
 navigation:
   - label: Overview
     url: "#overview"
+  - label: Challenges
+    url: "#problems"
+  - label: Products
+    url: "#products"
   - label: Solutions
     url: "#services"
-  - label: AI
-    url: "#ai-solutions"
   - label: Approach
     url: "#approach"
+  - label: Partners
+    url: "#partners"
   - label: Results
     url: "#results"
   - label: Team
@@ -53,6 +57,142 @@ overview:
     environments — process inefficiencies, workforce constraints, and overlooked
     improvement areas — helping clients achieve measurable performance gains and
     cost reductions.
+problems:
+  eyebrow: The challenge
+  title: Six costly problems — solved by AI
+  text: Each unsolved problem represents millions in annual losses for a single
+    operation. AI and computer vision can now solve these problems — more
+    accurately, more reliably, and at a fraction of the cost.
+  items:
+    - icon: alert
+      title: Foreign Object Damage
+      text: Tramp metal, oversize rock, and debris cause catastrophic belt tears and
+        equipment failure.
+      cost: $500K–$2M+ per year
+    - icon: trend
+      title: Grinding circuit P80 measurement
+      text: AI performs better than existing technology by roughly 5%. Grinding circuits
+        run 3–5% off optimal, wasting energy and reducing throughput.
+      cost: 3–5% throughput loss
+    - icon: droplet
+      title: Sub-optimal flotation control
+      text: Froth bubble size, velocity, and texture are key inputs for the flotation
+        control circuit, yet most operations have no tools to measure them. Others
+        have cameras but treat them as observation tools only, or their control
+        design is sub-optimal.
+      cost: 1–5% recovery loss
+    - icon: wrench
+      title: Equipment monitoring gaps
+      text: Operator visual inspections are done regularly but are infrequent by nature —
+        typically once or twice per shift — leaving long gaps where developing
+        faults go undetected. Visual AI fills this gap.
+      cost: Unplanned downtime
+    - icon: swap
+      title: Belt rip & mis-tracking
+      text: Longitudinal belt rips and mis-tracking go undetected until catastrophic
+        damage occurs. Vision catches these within seconds.
+      cost: Catastrophic equipment failure
+    - icon: boxes
+      title: Inaccurate stockpile inventory
+      text: Stockpile volumes at crushed ore buffers, coal yards, and concentrate storage
+        areas are measured by periodic manual surveys or drone flights. Mine
+        planners and logistics teams end up managing millions of dollars of
+        inventory with stale, inaccurate data.
+      cost: Inaccurate inventory management
+products:
+  eyebrow: Our products
+  title: Six AI computer vision modules
+  text: Deployed on edge hardware at the mine site — each module runs on
+    mining-specific trained models and integrates directly with your existing
+    control system.
+  cta_label: Explore all products
+  cta_url: /en/products/
+  index_page:
+    meta_title: AI Computer Vision Products for Mining | ICS Mongolia
+    meta_description: Six AI computer vision modules for mining operations — foreign
+      object detection, particle size measurement, flotation vision, equipment
+      monitoring, belt protection, and stockpile volume.
+    hero_eyebrow: Our products
+    hero_title: AI computer vision built for mine sites
+    hero_lede: Six modules that run on edge hardware at the plant, trained on
+      mining-specific data, and integrated directly with your control system.
+    primary_cta:
+      label: Request a demo
+      url: /en/#contact
+    secondary_cta:
+      label: Back to homepage
+      url: /en/
+    problems_eyebrow: Why it matters
+    problems_title: The problems these modules solve
+    problems_text: Each unsolved problem represents millions in annual losses for a
+      single operation.
+    catalogue_eyebrow: The catalogue
+    catalogue_title: Six modules, one platform
+    catalogue_text: Modules share the same edge hardware, model pipeline, and alarm
+      integration layer — start with one and add others without new infrastructure.
+    contact_eyebrow: Get in touch
+    contact_title: Which module fits your operation?
+    contact_text: Tell us about your circuit and we will scope the right starting point.
+    contact_cta_label: Contact us
+    back_to_home_label: Back to homepage
+  items:
+    - index: "01"
+      name: ICS-FOD
+      subtitle: Foreign Object Detection
+      url: /en/products/ics-fod/
+      link_label: Full specifications
+      points:
+        - Real-time detection of tramp metal, oversize rock & debris
+        - Detects both non-ferrous and ferrous objects
+        - Triggers instant belt stop or operator alert within 1 second
+    - index: "02"
+      name: ICS-P80Vision
+      subtitle: Particle Size Measurement
+      url: /en/products/#ics-p80vision
+      link_label: Learn more
+      points:
+        - Continuous real-time P80 measurement
+        - Feeds directly into mill/SAG control loops for closed-loop optimisation
+        - Reduces energy waste and improves downstream recovery by 1–3%
+        - Works on crusher discharge and conveyor transfer points
+    - index: "03"
+      name: ICS-FrothAI
+      subtitle: Flotation Circuit Vision
+      url: /en/products/#ics-frothai
+      link_label: Learn more
+      points:
+        - Measures froth bubble size, velocity, and texture in real time
+        - Provides objective reagent dosing and air control
+        - Improves flotation recovery by 0.5–2%
+        - Continuously learns which froth conditions produce best recovery
+    - index: "04"
+      name: ICS-EquipWatch
+      subtitle: Operational Assistant Camera
+      url: /en/products/#ics-equipwatch
+      link_label: Learn more
+      points:
+        - Continuous visual anomaly detection on crushers, mills, pumps, conveyors
+        - Detects overheating, material spillage, and mechanical wear visually
+        - Shifts operations from reactive to proactive maintenance
+    - index: "05"
+      name: ICS-BeltGuard
+      subtitle: Belt Rip & Mis-tracking Detection
+      url: /en/products/#ics-beltguard
+      link_label: Learn more
+      points:
+        - Detects longitudinal belt rips within seconds of occurrence
+        - Continuously tracks and monitors belt mis-tracking
+        - Continuous visual belt condition monitoring
+    - index: "06"
+      name: ICS-VOL
+      subtitle: Stockpile Inventory Management
+      url: /en/products/#ics-vol
+      link_label: Learn more
+      points:
+        - Real-time stockpile volume measurement
+        - Live feed availability for mill and crusher scheduling
+        - Real-time inventory for logistics planning, vessel loading, and sales
+          scheduling
 services:
   eyebrow: Solutions
   title: Hands-on services built for production environments
@@ -106,8 +246,8 @@ services:
         - OT + IT
         - Visibility
 ai_solutions:
-  eyebrow: AI Solutions
-  title: AI-Powered Computer Vision solutions for the Mining Industry
+  eyebrow: Flagship product
+  title: See ICS-FOD running on a live conveyor
   intro: ICS builds custom computer vision solutions that help mining operations
     improve safety, reduce downtime, and automate visual inspection across the
     entire extraction process. Our models are trained on mining-specific data
@@ -119,6 +259,9 @@ ai_solutions:
     logo_alt: ICS-FOD logo
     image: /images/ics-fod-product.png
     image_alt: ICS-FOD live foreign-object-detection user interface
+    video: /images/ics-fod-demo.mp4
+    video_poster: /images/ics-fod-product.webp
+    video_caption: ICS-FOD detecting foreign objects on a live conveyor feed.
     description: The ICS-FOD is an AI system that provides continuous, real-time
       detection of foreign objects on conveyor belts in mining and mineral
       processing operations. By combining an AI engine, embedded computing
@@ -218,6 +361,31 @@ approach:
       summary: Compare performance, document outcomes, and transfer knowledge.
       description: Compare before/after KPIs, lock in procedures, and transfer
         knowledge so crews own the improvement.
+partners:
+  eyebrow: Partners & distribution
+  title: Official distribution and technology partnerships
+  text: We represent world-class instrumentation and analysis brands in Mongolia,
+    backing every supply with local engineering, commissioning, and after-sales
+    support.
+  items:
+    - name: Bruker
+      badge: Official distributor — Mongolia
+      # Drop a licensed logo file into /images and set `logo:` to its path
+      # (e.g. /images/bruker-logo.png) to replace the text wordmark below.
+      logo: ""
+      logo_alt: Bruker
+      wordmark: BRUKER
+      text: Industrial Control Solutions LLC is the official distributor of Bruker in
+        Mongolia. Bruker's scientific instruments and analytical solutions —
+        including X-ray fluorescence and diffraction systems widely used for ore
+        grade control, mineralogy, and materials analysis — are available to
+        Mongolian mining and industrial operations through us, with local sales,
+        commissioning, and technical support.
+      links:
+        - label: Talk to us about Bruker
+          url: "#contact"
+        - label: bruker.com
+          url: https://www.bruker.com
 results:
   enabled: false
   eyebrow: Proof of work
